@@ -30,9 +30,17 @@
         <property name="extractValueFromSingleKeyModel" value="true"/>
     </bean>
 
-    <bean
-        class="org.springframework.web.servlet.view.UrlBasedViewResolver" p:order="2"
-        p:viewClass="org.springframework.web.servlet.view.JstlView"
-        p:prefix="/WEB-INF/jsp/" p:suffix=".jsp">
-    </bean>
+    <!-- tiles viewResolver -->
+	<bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView" />
+		<property name="order" value="2" />
+	</bean>
+
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	    <property name="order" value="3"/>
+	    <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+	    <property name="prefix" value="/WEB-INF/jsp/"/>
+	    <property name="suffix" value=".jsp"/>
+	    <property name="contentType" value="text/heml;charset=UTF-8"/>
+	</bean>
 </beans>
