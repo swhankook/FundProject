@@ -12,7 +12,7 @@
         <org.springframework-version>3.2.4.RELEASE</org.springframework-version>
         <org.aspectj-version>1.7.3</org.aspectj-version>
         <org.slf4j-version>1.6.6</org.slf4j-version>
-    </properties>     
+    </properties>
 
     <repositories>
         <repository>
@@ -25,7 +25,7 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
-        
+
         <repository>
             <id>egovframe</id>
             <url>http://www.egovframe.go.kr/maven/</url>
@@ -35,10 +35,10 @@
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
-        </repository>      
-       
+        </repository>
+
     </repositories>
-     
+
     <dependencies>
         <!-- Spring -->
         <dependency>
@@ -53,75 +53,75 @@
                  </exclusion>
             </exclusions>
         </dependency>
-         
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>${org.springframework-version}</version>
         </dependency>
-   
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${org.springframework-version}</version>
         </dependency>
-    
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aop</artifactId>
             <version>${org.springframework-version}</version>
         </dependency>
-         
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
             <version>${org.springframework-version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
             <version>${org.springframework-version}</version>
         </dependency>
-         
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
             <version>${org.springframework-version}</version>
         </dependency>
-         
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
             <version>${org.springframework-version}</version>
         </dependency>
-         
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
             <version>${org.springframework-version}</version>
         </dependency>
-          
+
         <!-- AOP Alliance -->
         <dependency>
             <groupId>aopalliance</groupId>
             <artifactId>aopalliance</artifactId>
             <version>1.0</version>
-        </dependency> 
-          
+        </dependency>
+
          <!-- MyBatis -->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>3.2.2</version>
         </dependency>
-         
+
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
             <version>1.2.0</version>
         </dependency>
-         
+
         <!-- DBCP -->
         <dependency>
             <groupId>org.apache.tomcat</groupId>
@@ -129,16 +129,16 @@
             <scope>provided</scope>
             <version>7.0.53</version>
         </dependency>
-                         
+
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
             <version>1.4</version>
         </dependency>
-         
+
         <!-- MySql -->
 
-        
+
         <!-- Oracle -->
 
 
@@ -148,19 +148,19 @@
             <artifactId>aspectjrt</artifactId>
             <version>${org.aspectj-version}</version>
         </dependency>
-         
+
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
             <version>${org.aspectj-version}</version>
         </dependency>
-         
+
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjtools</artifactId>
             <version>${org.aspectj-version}</version>
         </dependency>
-         
+
         <!-- Web -->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -168,26 +168,26 @@
             <scope>provided</scope>
            <version>2.5</version>
         </dependency>
-         
-        <dependency> 
-            <groupId>javax.servlet.jsp</groupId> 
-            <artifactId>jsp-api</artifactId> 
-            <scope>provided</scope> 
-            <version>2.1</version> 
+
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <scope>provided</scope>
+            <version>2.1</version>
         </dependency>
- 
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
-         
+
         <dependency>
             <groupId>javax.annotation</groupId>
             <artifactId>jsr250-api</artifactId>
             <version>1.0</version>
         </dependency>
-             
+
         <!-- Logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -214,47 +214,47 @@
             <artifactId>log4jdbc-remix</artifactId>
             <version>0.2.7</version>
         </dependency>
-         
+
         <!-- MappingJacksonJsonView -->
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
             <version>1.9.13</version>
         </dependency>
-         
+
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-core-asl</artifactId>
             <version>1.9.13</version>
         </dependency>
-         
+
         <!-- MultipartHttpServletRequset -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.0.1</version>
         </dependency>
-         
+
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
             <version>1.2.2</version>
         </dependency>
-         
+
         <!-- Apache Codec -->
         <dependency>
             <groupId>commons-codec</groupId>
             <artifactId>commons-codec</artifactId>
             <version>1.10</version>
         </dependency>
-         
+
         <!-- EgovProperty -->
         <dependency>
             <groupId>egovframework.rte</groupId>
-            <artifactId>egovframework.rte.fdl.property</artifactId>  
+            <artifactId>egovframework.rte.fdl.property</artifactId>
             <version>2.7.0</version>
         </dependency>
-         
+
         <!-- Log4j -->
         <dependency>
             <groupId>log4j</groupId>
@@ -279,20 +279,20 @@
                 </exclusion>
             </exclusions>
         </dependency>
-         
+
         <!-- @Inject -->
         <dependency>
             <groupId>javax.inject</groupId>
             <artifactId>javax.inject</artifactId>
             <version>1</version>
         </dependency>
-         
+
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
             <version>2.3</version>
         </dependency>
-                         
+
         <!-- Test -->
         <dependency>
             <groupId>junit</groupId>
@@ -305,21 +305,21 @@
        	<artifactId>mariadb-java-client</artifactId>
        	<version>1.3.5</version>
        </dependency>
-       
+
        <dependency>
 		<groupId>org.webjars.bower</groupId>
 		<artifactId>bootstrap</artifactId>
 		<version>3.3.4</version>
 		</dependency>
-		
+
 		<dependency>
 		<groupId>org.webjars.bower</groupId>
 		<artifactId>jquery</artifactId>
 		<version>2.1.3</version>
 		</dependency>
    </dependencies>
-     
-     
+
+
     <build>
         <defaultGoal>install</defaultGoal>
         <directory>${basedir}/target</directory>
@@ -360,13 +360,26 @@
                     <mainClass>org.test.int1.Main</mainClass>
                 </configuration>
             </plugin>
-             
+
             <!-- JavaDoc -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>2.5</version>
             </plugin>
+
+            <plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<mode>war</mode>
+					<port>8080</port>
+					<path>/</path>
+					<charset>UTF-8</charset>
+					<uriEncoding>UTF-8</uriEncoding>
+				</configuration>
+			</plugin>
         </plugins>
     </build>
 </project>
