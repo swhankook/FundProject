@@ -7,6 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-TEST
+	<ul class="nav nav-pills">
+		<li>대출받기</li>
+		<li>대출받기</li>
+		<li>대출받기</li>
+		<li>대출받기</li>
+		<li>대출받기</li>
+	</ul>
 </body>
 </html>

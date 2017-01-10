@@ -20,7 +20,6 @@
     <mvc:annotation-driven />
 	<mvc:default-servlet-handler/>
 
-
     <bean id="beanNameViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver">
 		<property name="order" value="1"/>
 	</bean>

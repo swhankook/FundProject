@@ -33,7 +33,9 @@ public class SampleController {
     }
 
     @RequestMapping(value="/sample.do")
-    public String sample(Model model) throws Exception{
-    	return "sample";
+    public ModelAndView sample(Map<String,Object> commandMap) throws Exception{
+        ModelAndView mv = new ModelAndView("/sample/sample");
+
+        return mv;
     }
 }
