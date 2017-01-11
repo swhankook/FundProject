@@ -9,6 +9,12 @@
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <context:component-scan base-package="www"></context:component-scan>
+    
+    <mvc:annotation-driven>
+        <mvc:argument-resolvers>
+            <bean class="www.common.resolver.CustomMapArgumentResolver"></bean>       
+        </mvc:argument-resolvers>
+    </mvc:annotation-driven>
 
     <mvc:interceptors>
         <mvc:interceptor>
