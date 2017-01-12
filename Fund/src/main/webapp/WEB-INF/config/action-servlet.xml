@@ -30,6 +30,9 @@
     <mvc:annotation-driven />
 	<mvc:default-servlet-handler/>
 
+	<!-- Resources -->
+	<mvc:resources location="/WEB-INF/resources/" mapping="/resources/**"/>
+
 	<aop:aspectj-autoproxy/>
 
     <bean id="loggerAspect" class="www.common.logger.LoggerAspect" />
