@@ -4,6 +4,7 @@
 <%@ include file="/WEB-INF/jsp/template/include/lib.jsp"%>
 
 <c:set var="themeCss"><c:url value="/resources/bootstrap/css/" /></c:set>
+<c:set var="customCss"><c:url value="/resources/custom/" /></c:set>
 
 <!-- Bootstrap core CSS -->
 <link href="${themeCss }bootstrap-theme.min.css" rel="stylesheet" />
@@ -12,5 +13,7 @@
 <link href="${themeCss }animate.css" rel="stylesheet" />
 <link href="${themeCss }prettyPhoto.css" rel="stylesheet" />
 <link href="${themeCss }style.css" rel="stylesheet" />
+<link href="${customCss }custom.css" rel="stylesheet" />
+
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <!-- CSS 추가. -->
