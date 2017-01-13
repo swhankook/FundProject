@@ -5,7 +5,11 @@
 
 <!-- Bootstrap core script -->
 <link href="${themeJs }bootstrap.min.js" rel="stylesheet" />
-<link href="${themeJs }npm.js" rel="stylesheet" />
+<link href="${themeJs }jquery-2.1.1.min.js" rel="stylesheet" />
+<link href="${themeJs }jquery.prettyPhoto.js" rel="stylesheet" />
+<link href="${themeJs }jquery.isotope.min.js" rel="stylesheet" />
+<link href="${themeJs }wow.min.js" rel="stylesheet" />
+<link href="${themeJs }functions.js" rel="stylesheet" />
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>

@@ -8,5 +8,9 @@
 <!-- Bootstrap core CSS -->
 <link href="${themeCss }bootstrap-theme.min.css" rel="stylesheet" />
 <link href="${themeCss }bootstrap.min.css" rel="stylesheet" />
+<link href="${themeCss }font-awesome.min.css" rel="stylesheet" />
+<link href="${themeCss }animate.css" rel="stylesheet" />
+<link href="${themeCss }prettyPhoto.css" rel="stylesheet" />
+<link href="${themeCss }style.css" rel="stylesheet" />
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <!-- CSS 추가. -->

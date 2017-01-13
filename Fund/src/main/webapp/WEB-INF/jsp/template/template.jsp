@@ -26,7 +26,7 @@
 		</section>
 		<!-- main content end -->
 		<!-- footer start -->
-		<section id="footer" style="bottom: 0px; position: absolute;">
+		<section id="footer" style="bottom: 0px; position: absolute; width: 100%;">
 			<tiles:insertAttribute name="footer" />
 		</section>
 		<!-- footer end -->
