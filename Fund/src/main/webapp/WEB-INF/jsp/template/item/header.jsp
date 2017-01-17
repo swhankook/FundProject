@@ -22,12 +22,11 @@
 				<div class="navbar-collapse collapse">
 					<div class="menu">
 						<ul class="nav nav-tabs" role="tablist">
-							<li role="presentation"><a href="/" class="active">Home</a></li>
-							<li role="presentation"><a href="/sample/boardList">대출받기</a></li>
-							<li role="presentation"><a href="/">Services</a></li>
-							<li role="presentation"><a href="/">Portfolio</a></li>
-							<li role="presentation"><a href="/">Blog</a></li>
-							<li role="presentation"><a href="/">Contact</a></li>
+							<li role="presentation"><a href="/sample/boardList" class="active">Home</a></li>
+							<li role="presentation"><a href="/loan/list">대출받기</a></li>
+							<li role="presentation"><a href="/loan/check">대출확인</a></li>
+							<li role="presentation"><a href="/user/join">회원가입</a></li>
+							<li role="presentation"><a href="/user/login">로그인</a></li>
 						</ul>
 					</div>
 				</div>
