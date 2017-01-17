@@ -10,6 +10,8 @@ import javax.annotation.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -50,8 +52,14 @@ public class SampleController extends BaseCtrl {
         return mv;
     }
 
-    @RequestMapping(value="/sample")
-    public String sample(Map<String,Object> commandMap) throws Exception{
-        return returnStr();
+    @RequestMapping(value="/boardList")
+    public void sample(Model model, Map<String,Object> commandMap) throws Exception{
+        List<Map<String,Object>> list = sampleService.selectBoardList(commandMap);
+        model.addAttribute("list", list);
+    }
+
+    @RequestMapping(value="/test")
+    public void test(Model model, Map<String,Object> commandMap) throws Exception{
+    	model.addAttribute("test","tttttttttt");
     }
 }
