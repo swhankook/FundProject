@@ -31,4 +31,10 @@ public class UserCtrl extends BaseCtrl {
 
     	model.addAttribute("test","tttttttttt");
     }
+
+    @RequestMapping(value="/loginAccept")
+    public void loginAccept(Model model, User user) throws Exception{
+
+    	model.addAttribute("test","tttttttttt");
+    }
 }
