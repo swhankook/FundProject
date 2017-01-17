@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import www.common.common.User;
 import www.common.ctrl.BaseCtrl;
 
 @Controller
@@ -22,6 +23,12 @@ public class UserCtrl extends BaseCtrl {
 
     @RequestMapping(value="/login")
     public void login(Model model, Map<String,Object> commandMap) throws Exception{
+    	model.addAttribute("test","tttttttttt");
+    }
+
+    @RequestMapping(value="/loginCheck")
+    public void login(Model model, User user) throws Exception{
+
     	model.addAttribute("test","tttttttttt");
     }
 }
