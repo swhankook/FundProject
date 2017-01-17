@@ -17,6 +17,7 @@ private static final Logger logger = LoggerFactory.getLogger(LoggerInterceptor.c
 			logger.debug("======================================      START         ====================================");
 			logger.debug(" Request URI \t: " + request.getRequestURI());
 		}
+		
 		return super.preHandle(request, response, handler);
 	}
 

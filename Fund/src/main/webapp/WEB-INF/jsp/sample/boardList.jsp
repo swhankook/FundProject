@@ -1,12 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/jsp/template/include/lib.jsp"%>
 <!DOCTYPE html>
-<html>
-<head>
-<title>www</title>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-</head>
-<body>
 <h2>게시판 목록</h2>
 <table style="border:1px solid #ccc">
     <colgroup>
@@ -41,8 +35,5 @@
                 </tr>
             </c:otherwise>
         </c:choose>
-         
     </tbody>
 </table>
-</body>
-</html>

@@ -4,7 +4,7 @@
         "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-	<definition name="sample.*" extends="template">
+	<definition name="sample/*" extends="template">
 		<put-attribute name="content" value="/WEB-INF/jsp/sample/{1}.jsp" />
 	</definition>
 </tiles-definitions>

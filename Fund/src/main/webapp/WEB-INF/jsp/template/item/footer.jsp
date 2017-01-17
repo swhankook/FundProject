@@ -23,18 +23,7 @@
 		</div>
 
 		<div class="col-md-4 col-md-offset-4">
-			<div class="copyright">
-				&copy; Company Theme. All Rights Reserved.
-				<div class="credits">
-					<!--
-                                All the links in the footer should remain intact.
-                                You can delete the links only if you purchased the pro version.
-                                Licensing information: https://bootstrapmade.com/license/
-                                Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Company
-                            -->
-					<a href="/">Business Bootstrap Themes</a> by <a href="/">BootstrapMade</a>
-				</div>
-			</div>
+			
 		</div>
 	</div>
 
