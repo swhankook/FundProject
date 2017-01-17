@@ -8,7 +8,7 @@
 				type="password" placeholder="비밀번호">
 			<button>login</button>
 			<p class="message">
-				아직 가입하지않았나요? <a href="/sample/member">회원가입하기</a>
+				아직 가입하지않았나요? <a href="/user/join">회원가입하기</a>
 			</p>
 		</form>
 	</div>

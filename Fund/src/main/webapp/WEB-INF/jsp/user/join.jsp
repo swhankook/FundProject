@@ -9,7 +9,7 @@
 				placeholder="비밀번호  확인">
 			<button>가입</button>
 			<p class="message">
-				이미 가입하셨나요? <a href="/sample/login">Log In</a>
+				이미 가입하셨나요? <a href="/user/login">Log In</a>
 			</p>
 		</form>
 	</div>
