@@ -22,7 +22,6 @@
 			var email = $('#email').val()
 				, pwd = $('#pwd').val()
 				, url = "<c:url value='/user/loginAccept' />?";
-
 			$.post(url, {
 				email : email,
 				password : pwd

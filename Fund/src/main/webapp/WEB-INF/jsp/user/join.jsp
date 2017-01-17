@@ -24,12 +24,18 @@ var join = {
 		var email = $('#email').val()
 			, pwd = $('#pwd').val()
 			, pwdCheck = $('#pwdCheck').val()
-			, url = "<c:url value='/user/loginCheck' />?";
+			, url = "<c:url value='/user/loginCheck.json' />?";
 
 		$.post(url, {email:email, password:pwd, passwordCheck:pwdCheck}, function(data){
-
+			console.log(status);
+			if (data.status == 1) {
+				alert('이메일이 이미 존재합니다.다른 이메일로 해주세요.');
+				return;
+			}
+			alert('로그인되었습니다.');
         }).fail(function() {
-        	alert( "error" );
+        	console.log(data.status);
+        	alert( "회원가입이 실패하였습니다. 관리자에게 문의하세요." );
         });
 	}
 }
