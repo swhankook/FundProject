@@ -103,6 +103,14 @@
             <version>${org.springframework-version}</version>
         </dependency>
 
+		<!-- json -->
+		<dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <classifier>jdk15</classifier>
+            <version>2.4</version>
+        </dependency>
+
         <!-- AOP Alliance -->
         <dependency>
             <groupId>aopalliance</groupId>
@@ -110,7 +118,7 @@
             <version>1.0</version>
         </dependency>
 
-         <!-- MyBatis -->
+        <!-- MyBatis -->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>

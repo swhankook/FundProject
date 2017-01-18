@@ -1,6 +1,12 @@
 package www.login.ctrl;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
+
+import net.sf.json.JSONObject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,16 +41,34 @@ public class UserCtrl extends BaseCtrl {
 		model.addAttribute("test", "tttttttttt");
 	}
 
-	@RequestMapping(value = "/loginCheck.json")
-	public ModelMap login(ModelMap model, User user) throws Exception {
+	@RequestMapping(value = "/loginCheck")
+	public void login(User user, HttpServletResponse response) throws Exception {
 		boolean isUser = loginService.userCheck(user);
+		JSONObject jsonObj = new JSONObject();
 		if (!isUser) {
-			model.addAttribute("status", "1");
+			jsonObj.put("status", "1");
 		} else {
 			loginService.userInsert(user);
-			model.addAttribute("status", "0");
+			jsonObj.put("status", "0");
 		}
-		return model;
+
+		responseToJson(response, jsonObj);
+	}
+
+	public static void responseToJson(HttpServletResponse response,
+			JSONObject retObj) {
+		response.setContentType("application/json; charset=UTF-8");
+		response.setHeader("Cache-Control", "no-cache");
+		PrintWriter out = null;
+
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+
+		}
+
+		out.write(retObj.toString());
+		out.flush();
 	}
 
 	@RequestMapping(value = "/loginAccept")
