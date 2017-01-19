@@ -18,4 +18,8 @@ public class LoginDao {
 	public void insertUser(User user) {
 		sqlSession.insert("Login.userInsert", user);
 	}
+
+	public User userLogin(User user) {
+		return sqlSession.selectOne("Login.userLogin", user);
+	}
 }

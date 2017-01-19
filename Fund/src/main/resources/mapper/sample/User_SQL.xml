@@ -16,7 +16,8 @@
 	<select id="userLogin" resultType="www.common.common.User">
             SELECT
                 email,
-                password
+                password,
+                type
             FROM
                 user
             WHERE

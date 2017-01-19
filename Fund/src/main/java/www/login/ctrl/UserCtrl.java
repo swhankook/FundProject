@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONObject;
 
@@ -72,8 +73,18 @@ public class UserCtrl extends BaseCtrl {
 	}
 
 	@RequestMapping(value = "/loginAccept")
-	public void loginAccept(Model model, User user) throws Exception {
+	public void loginAccept(HttpServletResponse response, User user, HttpSession session)
+			throws Exception {
+		User loginUser = loginService.userLogin(user);
 
-		model.addAttribute("test", "tttttttttt");
+		JSONObject jsonObj = new JSONObject();
+		if (loginUser == null) {
+			jsonObj.put("status", "1");
+		} else {
+			session.setAttribute("user", user);
+			jsonObj.put("status", "0");
+		}
+
+		responseToJson(response, jsonObj);
 	}
 }
