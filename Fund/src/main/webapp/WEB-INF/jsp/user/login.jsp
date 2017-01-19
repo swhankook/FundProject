@@ -7,6 +7,7 @@
 		<c:choose>
 			<c:when test="${not empty user }">
 				<div>이미 로그인되어있습니다.</div>
+				<button onclick="login.logout();">로그아웃</button>
 			</c:when>
 			<c:otherwise>
 				<input id="email" type="text" placeholder="e-mail 주소"> <input
@@ -62,6 +63,22 @@
 					} else if (data.status == 0) {
 						alert("로그인 성공. 홈으로 이동합니다.");
 						window.location.href = "/sample/boardList";
+					}
+				},error:function(request, status, error){
+					console.log(request, status, error)
+				}
+			});
+		},
+		logout:function() {
+			var url = "<c:url value='/user/logout' />?";
+			$.ajax({
+				url: url,
+				type:"post",
+				datatype:"json",
+				success:function(data) {
+					if (data.status == 0) {
+						alert("로그아웃 성공 로그인페이지로 이동합니다.");
+						window.location.href = "/user/login";
 					}
 				},error:function(request, status, error){
 					console.log(request, status, error)

@@ -87,4 +87,13 @@ public class UserCtrl extends BaseCtrl {
 
 		responseToJson(response, jsonObj);
 	}
+
+	@RequestMapping(value = "/logout")
+	public void logout(HttpServletResponse response, HttpSession session)
+			throws Exception {
+		JSONObject jsonObj = new JSONObject();
+		session.isNew();
+		jsonObj.put("status", "0");
+		responseToJson(response, jsonObj);
+	}
 }
