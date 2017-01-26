@@ -19,7 +19,7 @@
 		<tiles:insertAttribute name="menu" />
 		<!-- menu end -->
 		<!-- main content start -->
-		<section id="main-content" style="top: 75px; left: 0px; right: 0px; bottom: 40px; position: absolute; overflow: auto;">
+		<section id="main-content" style="top: 75px; left: 0px; right: 0px; bottom: 80px; position: absolute; overflow: auto;">
 			<section class="wrapper">
 				<tiles:insertAttribute name="content" />
 			</section>

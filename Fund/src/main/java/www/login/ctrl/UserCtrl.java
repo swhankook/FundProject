@@ -92,7 +92,7 @@ public class UserCtrl extends BaseCtrl {
 	public void logout(HttpServletResponse response, HttpSession session)
 			throws Exception {
 		JSONObject jsonObj = new JSONObject();
-		session.isNew();
+		session.removeAttribute("user");
 		jsonObj.put("status", "0");
 		responseToJson(response, jsonObj);
 	}

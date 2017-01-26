@@ -11,20 +11,21 @@ import org.springframework.stereotype.Service;
 import www.sample.dao.SampleDAO;
 
 @Service("sampleService")
-public class SampleServiceImpl implements SampleService{
-	 Logger log = Logger.getLogger(this.getClass());
-     
-	    @Resource(name="sampleDAO")
-	    private SampleDAO sampleDAO;
-	     
-	    @Override
-	    public List<Map<String, Object>> selectBoardList(Map<String, Object> map) throws Exception {
-	        return sampleDAO.selectBoardList(map);
-	    }
-	    
-	    @Override
-	    public void insertBoard(Map<String, Object> map) throws Exception {
-	    	sampleDAO.insertBoard(map);
-	    }
+public class SampleServiceImpl implements SampleService {
+	Logger log = Logger.getLogger(this.getClass());
+
+	@Resource(name = "sampleDAO")
+	private SampleDAO sampleDAO;
+
+	@Override
+	public List<Map<String, Object>> selectBoardList(Map<String, Object> map)
+			throws Exception {
+		return sampleDAO.selectBoardList(map);
+	}
+
+	@Override
+	public void insertBoard(Map<String, Object> map) throws Exception {
+		sampleDAO.insertBoard(map);
+	}
 
 }

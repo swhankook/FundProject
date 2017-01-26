@@ -1,1 +1,1 @@
-<% response.sendRedirect("/sample/boardList"); %>
+<% response.sendRedirect("/board/boardList"); %>

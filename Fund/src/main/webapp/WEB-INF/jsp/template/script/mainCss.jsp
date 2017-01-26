@@ -4,7 +4,7 @@
 <%@ include file="/WEB-INF/jsp/template/include/lib.jsp"%>
 
 <c:set var="themeCss"><c:url value="/resources/bootstrap/css/" /></c:set>
-<c:set var="customCss"><c:url value="/resources/custom/" /></c:set>
+<c:set var="customCss"><c:url value="/resources/custom/css/" /></c:set>
 
 <!-- Bootstrap core CSS -->
 <link href="${themeCss }bootstrap-theme.min.css" rel="stylesheet" />

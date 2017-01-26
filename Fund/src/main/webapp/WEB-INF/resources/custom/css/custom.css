@@ -1,0 +1,11 @@
+.wrapper {
+	color: black;
+}
+
+.board_table {
+	color: black;
+	border:1px solid #ccc;
+}
+.caption {
+	text-align: center !important;
+}

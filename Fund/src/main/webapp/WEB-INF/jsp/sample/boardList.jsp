@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/jsp/template/include/lib.jsp"%>
 <!DOCTYPE html>
 <h2>게시판 목록</h2>
-<table style="border:1px solid #ccc">
+<table class="board_table">
     <colgroup>
         <col width="10%"/>
         <col width="*"/>
