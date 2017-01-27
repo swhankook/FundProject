@@ -83,7 +83,7 @@ public class AbstractDAO {
 
         int start = paginationInfo.getFirstRecordIndex();
         int end = start + paginationInfo.getRecordCountPerPage();
-        map.put("START",start+1);
+        map.put("START",start);
         map.put("END",end);
 
         params = map;
