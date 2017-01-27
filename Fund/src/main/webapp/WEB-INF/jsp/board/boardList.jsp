@@ -21,10 +21,11 @@
 	<tbody>
 		<c:choose>
 			<c:when test="${fn:length(list) > 0}">
-				<c:forEach items="${list }" var="row">
+				<c:forEach var="row" items="${list}" varStatus="status">
 					<tr>
 						<td>${row.IDX }</td>
-						<td>${row.TITLE }</td>
+						<td class="title"><a href="#this" name="title">${row.TITLE }</a>
+							<input type="hidden" id="IDX" value="${row.IDX }"></td>
 						<td>${row.HIT_CNT }</td>
 						<td>${row.CREA_DTM }</td>
 					</tr>
@@ -40,7 +41,7 @@
 </table>
 <c:if test="${not empty paginationInfo}">
 	<ui:pagination paginationInfo="${paginationInfo}" type="text"
-		jsFunction="boardList.fn_search" />
+		jsFunction="fn_search" />
 </c:if>
 <input type="hidden" id="currentPageNo" name="currentPageNo" />
 
