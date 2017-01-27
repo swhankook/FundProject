@@ -3,22 +3,20 @@
 <mapper namespace="board">
 	<sql id="pagingPre">
     <![CDATA[
-        SELECT
-            AAA.*
-        FROM(
-            SELECT
-                COUNT(*) OVER() AS TOTAL_COUNT,
-                AA.*
-            FROM(
+        select @i as TOTAL_COUNT, AAA.*
+		from(
+			select
+			@i := @i + 1 as RNUM
+			, AA.*
+			from(
     ]]>
 	</sql>
 
 	<sql id="pagingPost">
     <![CDATA[
-            ) AA
-        ) AAA
-        WHERE
-            AAA.RNUM BETWEEN #{START} AND #{END}
+           ) AA, (select @i := 0, @j := 0) temp
+		) AAA
+		where AAA.RNUM limit #{START}, #{END}
     ]]>
 	</sql>
 </mapper>
