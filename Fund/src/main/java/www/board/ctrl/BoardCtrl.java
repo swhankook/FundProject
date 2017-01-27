@@ -1,6 +1,5 @@
 package www.board.ctrl;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -16,23 +15,22 @@ import org.springframework.web.servlet.ModelAndView;
 import www.board.service.BoardService;
 import www.common.common.CommandMap;
 import www.common.ctrl.BaseCtrl;
+import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
 @Controller
 @RequestMapping("/board")
 public class BoardCtrl extends BaseCtrl {
-	private static final Logger logger = LoggerFactory
-			.getLogger(BoardCtrl.class);
+	private static final Logger logger = LoggerFactory.getLogger(BoardCtrl.class);
 
 	@Resource(name = "boardService")
 	private BoardService boardService;
 
 	@RequestMapping(value = "/boardList")
-	public void sample(Model model, Map<String, Object> commandMap)
-			throws Exception {
-		List<Map<String, Object>> list = boardService
-				.selectBoardList(commandMap);
-		logger.debug("List Size : " + list.size());
-		model.addAttribute("list", list);
+	public void sample(Model model, CommandMap commandMap) throws Exception {
+		Map<String,Object> resultMap = boardService.selectBoardList(commandMap.getMap());
+
+		model.addAttribute("paginationInfo", (PaginationInfo)resultMap.get("paginationInfo"));
+		model.addAttribute("list", resultMap.get("result"));
 	}
 
 	@RequestMapping(value = "/boardWrite")
@@ -44,8 +42,7 @@ public class BoardCtrl extends BaseCtrl {
 		ModelAndView mv = null;
 
 		if (StringUtils.isNotBlank(commandMap.getMap().get("TITLE").toString())
-				|| StringUtils.isNotBlank(commandMap.getMap().get("CONTENTS")
-						.toString())) {
+				|| StringUtils.isNotBlank(commandMap.getMap().get("CONTENTS").toString())) {
 			mv = new ModelAndView("redirect:/board/boardList");
 			boardService.insertBoard(commandMap.getMap());
 		} else {
@@ -56,10 +53,34 @@ public class BoardCtrl extends BaseCtrl {
 	}
 
 	@RequestMapping(value = "/boardDetail")
-	public void openBoardDetail(Model mv, CommandMap commandMap)
-			throws Exception {
-		Map<String, Object> map = boardService.selectBoardDetail(commandMap
-				.getMap());
+	public void openBoardDetail(Model mv, CommandMap commandMap) throws Exception {
+		Map<String, Object> map = boardService.selectBoardDetail(commandMap.getMap());
 		mv.addAttribute("map", map);
+	}
+
+	@RequestMapping(value = "/boardUpdate")
+	public void openBoardUpdate(Model mv, CommandMap commandMap) throws Exception {
+
+		Map<String, Object> map = boardService.selectBoardDetail(commandMap.getMap());
+		mv.addAttribute("map", map);
+	}
+
+	@RequestMapping(value = "/updateBoard")
+	public ModelAndView updateBoard(CommandMap commandMap) throws Exception {
+		ModelAndView mv = new ModelAndView("redirect:/board/boardDetail");
+
+		boardService.updateBoard(commandMap.getMap());
+
+		mv.addObject("IDX", commandMap.get("IDX"));
+		return mv;
+	}
+
+	@RequestMapping(value="/deleteBoard")
+	public ModelAndView deleteBoard(CommandMap commandMap) throws Exception{
+	    ModelAndView mv = new ModelAndView("redirect:/board/boardList");
+
+	    boardService.deleteBoard(commandMap.getMap());
+
+	    return mv;
 	}
 }

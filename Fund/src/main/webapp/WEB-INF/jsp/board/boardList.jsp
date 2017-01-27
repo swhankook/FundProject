@@ -38,6 +38,13 @@
 		</c:choose>
 	</tbody>
 </table>
+<c:if test="${not empty paginationInfo}">
+	<ui:pagination paginationInfo="${paginationInfo}" type="text"
+		jsFunction="boardList.fn_search" />
+</c:if>
+<input type="hidden" id="currentPageNo" name="currentPageNo" />
+
+<br />
 <a href="#this" class="btn" id="write">글쓰기</a>
 <script type="text/javascript">
 	var boardList = {
@@ -61,6 +68,12 @@
 			var comSubmit = new ComSubmit();
 			comSubmit.setUrl("boardDetail");
 			comSubmit.addParam("IDX", obj.parent().find("#IDX").val());
+			comSubmit.submit();
+		},
+		fn_search : function(pageNo) {
+			var comSubmit = new ComSubmit();
+			comSubmit.setUrl("boardList");
+			comSubmit.addParam("currentPageNo", pageNo);
 			comSubmit.submit();
 		}
 	}

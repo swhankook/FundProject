@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mapper namespace="board">
+	<sql id="pagingPre">
+    <![CDATA[
+        SELECT
+            AAA.*
+        FROM(
+            SELECT
+                COUNT(*) OVER() AS TOTAL_COUNT,
+                AA.*
+            FROM(
+    ]]>
+	</sql>
+
+	<sql id="pagingPost">
+    <![CDATA[
+            ) AA
+        ) AAA
+        WHERE
+            AAA.RNUM BETWEEN #{START} AND #{END}
+    ]]>
+	</sql>
+</mapper>

@@ -1,6 +1,5 @@
 package www.board.service;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -18,10 +17,10 @@ public class BoardServiceImpl implements BoardService {
 	private BoardDao boardDao;
 
 	@Override
-	public List<Map<String, Object>> selectBoardList(Map<String, Object> map)
-			throws Exception {
-		return boardDao.selectBoardList(map);
+	public Map<String, Object> selectBoardList(Map<String, Object> map) throws Exception {
+	    return boardDao.selectBoardList(map);
 	}
+
 
 	@Override
 	public void insertBoard(Map<String, Object> map) throws Exception {
@@ -29,10 +28,19 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public Map<String, Object> selectBoardDetail(Map<String, Object> map)
-			throws Exception {
+	public Map<String, Object> selectBoardDetail(Map<String, Object> map) throws Exception {
 		boardDao.updateHitCnt(map);
 		Map<String, Object> resultMap = boardDao.selectBoardDetail(map);
 		return resultMap;
+	}
+
+	@Override
+	public void updateBoard(Map<String, Object> map) throws Exception{
+		boardDao.updateBoard(map);
+	}
+
+	@Override
+	public void deleteBoard(Map<String, Object> map) throws Exception {
+		boardDao.deleteBoard(map);
 	}
 }
