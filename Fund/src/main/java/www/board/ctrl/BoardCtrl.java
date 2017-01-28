@@ -1,8 +1,10 @@
 package www.board.ctrl;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -13,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import www.board.service.BoardService;
+import www.common.common.Board;
 import www.common.common.CommandMap;
+import www.common.common.User;
 import www.common.ctrl.BaseCtrl;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
@@ -34,11 +38,23 @@ public class BoardCtrl extends BaseCtrl {
 	}
 
 	@RequestMapping(value = "/boardListTest")
-	public void boardListTest(Model model, CommandMap commandMap) throws Exception {
+	public void boardListTest(Model model, CommandMap commandMap, HttpSession session) throws Exception {
 		Map<String,Object> resultMap = boardService.boardList(commandMap.getMap());
 
 		model.addAttribute("paginationInfo", (PaginationInfo)resultMap.get("paginationInfo"));
-		model.addAttribute("list", resultMap.get("result"));
+		User user = (User) session.getAttribute("user");
+		if(user == null) {
+			user = new User();
+			user.setEmail("admin");
+		}
+		List<Board> list = (List<Board>) resultMap.get("result");
+		for(Board board : list) {
+			if(!board.getCrea_id().equals(user.getEmail())) {
+				board.setContents("비밀글입니다.");
+				board.setTitle("비밀글입니다.");
+			}
+		}
+		model.addAttribute("list", list);
 	}
 
 	@RequestMapping(value = "/boardWrite")
