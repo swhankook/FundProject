@@ -70,7 +70,7 @@
 		fn_openBoardDetail : function(obj) {
 			var comSubmit = new ComSubmit()
 				, user_email = $('#user_email').val()
-				, crea_id = obj.parent().find("#E").val();
+				, crea_id = obj.parent().find("#EMAIL").val();
 
 			if (user_email === crea_id) {
 				comSubmit.setUrl("boardDetail");
