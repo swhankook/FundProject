@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="board">
+<mapper namespace="common">
 	<sql id="pagingPre">
     <![CDATA[
-        select @i as TOTAL_COUNT, AAA.*
+        select @i+1 as TOTAL_COUNT, AAA.*
 		from(
 			select
 			@i := @i + 1 as RNUM

@@ -103,7 +103,7 @@ public class AbstractDAO {
         }
         else{
             if(paginationInfo != null){
-                paginationInfo.setTotalRecordCount(Integer.parseInt(list.get(0).get("TOTAL_COUNT").toString()));
+                paginationInfo.setTotalRecordCount((int)Double.parseDouble(list.get(0).get("TOTAL_COUNT").toString()));
                 returnMap.put("paginationInfo", paginationInfo);
             }
         }
