@@ -10,7 +10,25 @@
 	            IDX,
 	            TITLE,
 	            HIT_CNT,
-	            CREA_DTM
+	            CREA_DTM,
+	            CREA_ID
+	        FROM
+	            TB_BOARD
+	        WHERE
+	            DEL_GB = 'N'
+	    ]]>
+		<include refid="common.pagingPost" />
+	</select>
+
+	<select id="boardList" parameterType="hashmap" resultType="www.common.common.Board">
+		<include refid="common.pagingPre" />
+	    <![CDATA[
+	        SELECT
+	            IDX,
+	            TITLE,
+	            HIT_CNT,
+	            CREA_DTM,
+	            CREA_ID
 	        FROM
 	            TB_BOARD
 	        WHERE

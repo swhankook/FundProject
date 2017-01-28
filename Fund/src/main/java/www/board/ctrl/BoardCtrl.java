@@ -26,8 +26,16 @@ public class BoardCtrl extends BaseCtrl {
 	private BoardService boardService;
 
 	@RequestMapping(value = "/boardList")
-	public void sample(Model model, CommandMap commandMap) throws Exception {
+	public void boardList(Model model, CommandMap commandMap) throws Exception {
 		Map<String,Object> resultMap = boardService.selectBoardList(commandMap.getMap());
+
+		model.addAttribute("paginationInfo", (PaginationInfo)resultMap.get("paginationInfo"));
+		model.addAttribute("list", resultMap.get("result"));
+	}
+
+	@RequestMapping(value = "/boardListTest")
+	public void boardListTest(Model model, CommandMap commandMap) throws Exception {
+		Map<String,Object> resultMap = boardService.boardList(commandMap.getMap());
 
 		model.addAttribute("paginationInfo", (PaginationInfo)resultMap.get("paginationInfo"));
 		model.addAttribute("list", resultMap.get("result"));

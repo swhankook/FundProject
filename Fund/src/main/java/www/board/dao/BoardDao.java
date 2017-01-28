@@ -14,6 +14,11 @@ public class BoardDao extends AbstractDAO {
 	    return (Map<String, Object>)selectPagingList("board.selectBoardList", map);
 	}
 
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> boardList(Map<String, Object> map) throws Exception{
+	    return (Map<String, Object>)pagingList("board.boardList", map);
+	}
+
 	public void insertBoard(Map<String, Object> map) throws Exception {
 		insert("board.insertBoard", map);
 	}

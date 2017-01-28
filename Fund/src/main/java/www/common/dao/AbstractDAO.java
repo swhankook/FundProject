@@ -10,6 +10,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
+import www.common.common.Board;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
 public class AbstractDAO {
@@ -83,7 +84,7 @@ public class AbstractDAO {
 
         int start = paginationInfo.getFirstRecordIndex();
         int end = start + paginationInfo.getRecordCountPerPage();
-        map.put("START",start);
+        map.put("START",start + 1);
         map.put("END",end);
 
         params = map;
@@ -110,4 +111,55 @@ public class AbstractDAO {
         returnMap.put("result", list);
         return returnMap;
     }
+
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    public Map pagingList(String queryId, Object params){
+        printQueryId(queryId);
+
+        Map<String,Object> map = (Map<String,Object>)params;
+        PaginationInfo paginationInfo = null;
+
+        if(map.containsKey("currentPageNo") == false || StringUtils.isEmpty(map.get("currentPageNo")) == true)
+            map.put("currentPageNo","1");
+
+        paginationInfo = new PaginationInfo();
+        paginationInfo.setCurrentPageNo(Integer.parseInt(map.get("currentPageNo").toString()));
+        if(map.containsKey("PAGE_ROW") == false || StringUtils.isEmpty(map.get("PAGE_ROW")) == true){
+            paginationInfo.setRecordCountPerPage(15);
+        }
+        else{
+            paginationInfo.setRecordCountPerPage(Integer.parseInt(map.get("PAGE_ROW").toString()));
+        }
+        paginationInfo.setPageSize(10);
+
+        int start = paginationInfo.getFirstRecordIndex();
+        int end = start + paginationInfo.getRecordCountPerPage();
+        map.put("START",start + 1);
+        map.put("END",end);
+
+        params = map;
+
+        Map<String,Object> returnMap = new HashMap<String,Object>();
+        List<Board> boardList = sqlSession.selectList(queryId, params);
+
+        if(boardList.size() == 0){
+            Board board = new Board();
+            board.setTotal_count(0);
+            boardList.add(board);
+
+            if(paginationInfo != null){
+                paginationInfo.setTotalRecordCount(0);
+                returnMap.put("paginationInfo", paginationInfo);
+            }
+        }
+        else{
+            if(paginationInfo != null){
+                paginationInfo.setTotalRecordCount(boardList.get(0).getTotal_count());
+                returnMap.put("paginationInfo", paginationInfo);
+            }
+        }
+        returnMap.put("result", boardList);
+        return returnMap;
+    }
+
 }

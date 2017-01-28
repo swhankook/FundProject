@@ -21,6 +21,11 @@ public class BoardServiceImpl implements BoardService {
 	    return boardDao.selectBoardList(map);
 	}
 
+	@Override
+	public Map<String, Object> boardList(Map<String, Object> map) throws Exception {
+	    return boardDao.boardList(map);
+	}
+
 
 	@Override
 	public void insertBoard(Map<String, Object> map) throws Exception {
