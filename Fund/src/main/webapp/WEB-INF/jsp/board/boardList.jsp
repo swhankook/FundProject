@@ -42,7 +42,7 @@
 </table>
 <c:if test="${not empty paginationInfo}">
 	<ui:pagination paginationInfo="${paginationInfo}" type="text"
-		jsFunction="fn_search" />
+		jsFunction="boardList.fn_search" />
 </c:if>
 <input type="hidden" id="currentPageNo" name="currentPageNo" />
 

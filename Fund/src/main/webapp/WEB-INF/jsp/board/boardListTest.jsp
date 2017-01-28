@@ -43,7 +43,7 @@
 <input type="hidden" id="user_email" value="${user.email }">
 <c:if test="${not empty paginationInfo}">
 	<ui:pagination paginationInfo="${paginationInfo}" type="text"
-		jsFunction="fn_search" />
+		jsFunction="boardList.fn_search" />
 </c:if>
 <input type="hidden" id="currentPageNo" name="currentPageNo" />
 
@@ -82,7 +82,7 @@
 		},
 		fn_search : function(pageNo) {
 			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("boardList");
+			comSubmit.setUrl("boardListTest");
 			comSubmit.addParam("currentPageNo", pageNo);
 			comSubmit.submit();
 		}
