@@ -83,7 +83,7 @@ public class AbstractDAO {
         paginationInfo.setPageSize(10);
 
         int start = paginationInfo.getFirstRecordIndex();
-        int end = start + paginationInfo.getRecordCountPerPage();
+        int end = 15;
         map.put("START",start + 1);
         map.put("END",end);
 
@@ -133,9 +133,9 @@ public class AbstractDAO {
         paginationInfo.setPageSize(10);
 
         int start = paginationInfo.getFirstRecordIndex();
-        int end = start + paginationInfo.getRecordCountPerPage();
+        int end = 15;
         map.put("START",start + 1);
-        map.put("END",15);//게시글 15개로 고정
+        map.put("END",end);
 
         params = map;
 
