@@ -65,7 +65,7 @@
     <![CDATA[
         UPDATE TB_BOARD
         SET
-            HIT_CNT = NVL(HIT_CNT, 0) + 1
+            HIT_CNT = ifnull(HIT_CNT, 0) + 1
         WHERE
             IDX = #{IDX}
     ]]>
