@@ -17,7 +17,9 @@
     <![CDATA[
            ) AA, (select @i := 0, @j := 0) temp
 		) AAA
-		where AAA.RNUM limit #{START}, #{END}
+		where AAA.RNUM 
+		ORDER BY IDX DESC
+		limit #{START}, #{END}
     ]]>
 	</sql>
 </mapper>
