@@ -1,0 +1,133 @@
+.boardList {
+ padding: 30px 0;
+}
+
+.boardList h1 {
+ font-family: 'Raleway', 'Nanum Gothic';
+ font-size: 40px;
+ font-weight: 300;
+ letter-spacing: 0.05em;
+ padding:10px 0px 30px 0px;
+ margin: 0px;
+}
+
+.boardList .tpl-forum-list-hit { margin-left: 7px; }
+.boardList .clear-left { clear: left; }
+.boardList .search-box { clear: both; padding-bottom: 20px; }
+.boardList .search-box .form-control,
+.boardList .search-box .form-control:focus,
+.boardList .search-box .form-control:hover,
+.boardList .search-box .search-btn ,
+.boardList .search-box .search-btn:hover, 
+.boardList .search-box .search-btn:focus { 
+ background-color: #fff;
+ border: 1px solid #e9e9e9; 
+ -moz-border-radius: 0; 
+ border-radius: 0; 
+ -webkit-box-shadow: none;
+ box-shadow: none;
+ height: 24px;
+ vertical-align: top;
+}
+.boardList .search-box .form-control { font-family: 'Questrial', 'Nanum Gothic'; font-size: 12px; color: #737373; padding: 0 5px; }
+.boardList .search-box select.form-control { width: 100px; text-transform: uppercase; margin-right: 5px; }
+.boardList .search-box .search-btn { border-left: 0! important; color: #191919; padding: 0 7px 3px; }
+
+.boardList .tpl-forum-list-title a { color:#666; }
+.boardList .table tr th.tpl-forum-num { width:7%; }
+.boardList .table tr th.tpl-forum-name { width:15%; }
+.boardList .table tr th.tpl-forum-date { width:15%; }
+.boardList .table tr th.tpl-forum-title{ width:auto; }
+.boardList .table tr th.tpl-forum-hit{ width:5%; }
+.boardList .table tr th,
+.boardList .table tr td {  font-family: 'Roboto', 'Nanum Gothic'; text-align: center;font-weight:normal; }
+.boardList .thead-top-line { border-top: 2px solid #101010; } 
+.boardList .thead-bottom-line  { border-bottom: 1px solid #e9e9e9; }
+.boardList .table > tbody > tr { border-top: 1px solid #e9e9e9; }
+.boardList .table > tbody > tr:nth-of-type(1) { border-top: none! important; }
+.boardList .table > thead > tr > th,
+.boardList .table > tbody > tr > th, 
+.boardList .table > tfoot > tr > th, 
+.boardList .table > thead > tr > td, 
+.boardList .table > tbody > tr > td, 
+.boardList .table > tfoot > tr > td {
+ line-height: 2;
+ letter-spacing: 0.07em;
+}
+.boardList .table > thead > tr > th {
+ border-bottom: none;
+ font-size: 13px;
+ color: #191919;
+}
+.boardList .table > tbody > tr > th,
+.boardList .table > tbody > tr > td {
+ font-size: 12px;
+ color: #737373;
+ font-weight: normal;
+ border: none! important;
+}
+.boardList .table > tbody > tr > td:nth-child(2) { text-align: left; }
+.boardList .table > tbody {
+ border-bottom: 1px solid #e9e9e9;
+}
+.boardList .tpl-forum-write {
+ position: absolute;
+ font-family: 'Raleway', 'Nanum Gothic';
+ bottom: 5px;
+ right: 15px;
+ margin: 20px 0;
+ font-size: 12px;
+ letter-spacing: 0.07em;
+ background-color: #191919;
+ color: #fff;
+ -moz-border-radius: 0;
+ border-radius: 0;
+ border-color: #191919;
+ line-height: 2;
+ min-width: 90px;
+ box-shadow: none;
+}
+.boardList .pagination > li > a {   
+ font-family:  'Open sans', 'Nanum Gothic';
+ font-size: 12px; 
+ color: #737373;
+ letter-spacing: 0.07em;
+ border:none;
+ background: transparent;
+}
+.boardList .pagination > li > a:hover,
+.boardList .pagination > li > span:hover,
+.boardList .pagination > li > a:focus,
+.boardList .pagination > li > span:focus {
+ background: transparent;
+}
+
+.boardList .pagination > .active > a,
+.boardList .pagination > .active > span,
+.boardList .pagination > .active > a:hover,
+.boardList .pagination > .active > span:hover,
+.boardList .pagination > .active > a:focus,
+.boardList .pagination > .active > span:focus {
+ z-index: 2;
+ color: #fb4045;
+ cursor: default;
+ background: transparent;
+ border-color: none;
+}
+
+@media only screen and (max-width:767px) {
+ .boardList .table tr th.tpl-forum-num,
+ .boardList .table tr th.tpl-forum-list-num,
+ .boardList .table tr th.tpl-forum-date,
+ .boardList .table tr th.tpl-forum-hit,
+ .boardList .table tbody tr td:nth-of-type(1),
+ .boardList .table tbody tr td:nth-of-type(4), 
+ .boardList .table tbody tr td:nth-of-type(5) { display: none; }
+ .boardList .table tr td.tpl-forum-name { width: 110px; }
+ .boardList .table > tbody > tr > td:nth-child(2) { line-height: 1.8em; }
+ .boardList .pagination { margin: 0 0 20px; }
+ .boardList .tpl-forum-write { position: relative; margin: 0; right: 0; float: right; }
+}
+@media only screen and (max-width:480px) {
+  .boardList .search-box { width: 100%; margin-left: 0; }
+}
