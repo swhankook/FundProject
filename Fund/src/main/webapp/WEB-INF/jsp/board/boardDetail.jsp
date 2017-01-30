@@ -24,7 +24,7 @@
 						<img id="forum-ctrl" aria-expanded="true" aria-haspopup="true" src="//i.addblock.net/icon/icon-user-ctrl.png" data-toggle="dropdown">
 						<ul class="dropdown-menu" aria-labelledby="forum-ctrl">	
 							<li>
-								<a class="tpl-forum-write" href="#" data-id="13010" data-pid="628576"><a href="#this" class="btn" id="update">수정하기</a></a>
+								<a class="tpl-forum-write" href="#this" data-id="13010" data-pid="628576" class="btn" id="update">수정</a>
 							</li>	
 							<li>
 								<a class="tpl-forum-delete" href="#" data-id="13010" data-pid="628576">삭제</a>
@@ -41,9 +41,9 @@
 						</li>       
 					</ul>					
 					<div class="tpl-forum-control-wrap" style="float: right;">						
-						<button class="btn btn-default btn-round btn-modal btn-list tpl-forum-list" type="button">
-							<i class="fa fa-bars"></i>
-							 <a href="#this" class="btn" id="list">목록</a>
+						<button class="btn btn-default btn-round btn-modal btn-list tpl-forum-list" type="button" id="list">
+							 <i class="fa fa-bars"> </i>
+							 <a href="#this" class="btn" >목록</a>
 						</button>						
 						<button class="btn btn-default btn-round btn-modal btn-list tpl-forum-write" type="button" data-pid="628576" data-reply="13010">
 							<i class="fa fa-reply"></i> 
@@ -73,7 +73,7 @@
 					</tr>
 					<tr>
 						<td class="comm-area">
-							<textarea class="form-control" id="comm-content" placeholder="Write here..." data-autoresize="">Write here...</textarea>
+							<textarea class="form-control" id="comm-content" placeholder="Write here..." data-autoresize=""></textarea>
 							<div class="btn-mobile comment-submit">
 								<span class="btn btn-submit btn-round">댓글</span>
 							</div>

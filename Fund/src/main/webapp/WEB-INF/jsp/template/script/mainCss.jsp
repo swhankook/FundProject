@@ -20,3 +20,4 @@
 <link href="${themeCss }login.css" rel="stylesheet" />
 <link href="${themeCss }boardList.css" rel="stylesheet" />
 <link href="${themeCss }boardDetail.css" rel="stylesheet" />
+<link href="${themeCss }reply.css" rel="stylesheet" />
