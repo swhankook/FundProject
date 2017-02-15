@@ -23,10 +23,21 @@
 					<div class="menu">
 						<ul class="nav nav-tabs" role="tablist">
 							<li role="presentation"><a href="/sample/boardList" class="active">Home</a></li>
-							<li role="presentation"><a href="/loan/list">대출받기</a></li>
-							<li role="presentation"><a href="/loan/check">대출확인</a></li>
+							<li role="presentation"><a href="/board/boardWrite">대출받기</a></li>
+							<c:if test="${not empty user && user.type eq 'company'}">
+								<li role="presentation"><a href="/board/boardList">대출확인</a></li>
+							</c:if>
 							<li role="presentation"><a href="/user/join">회원가입</a></li>
-							<li role="presentation"><a href="/user/login">로그인</a></li>
+							<li role="presentation"><a href="/user/login">
+							<c:choose>
+								<c:when test="${not empty user}">
+								로그아웃
+								</c:when>
+								<c:otherwise>
+								로그인
+								</c:otherwise>
+							</c:choose>
+							</a></li>
 						</ul>
 					</div>
 				</div>

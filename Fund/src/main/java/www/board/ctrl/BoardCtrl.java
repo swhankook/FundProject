@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import www.board.service.BoardService;
 import www.common.common.Board;
 import www.common.common.CommandMap;
+import www.common.common.Loan;
 import www.common.common.User;
 import www.common.ctrl.BaseCtrl;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
@@ -104,6 +105,13 @@ public class BoardCtrl extends BaseCtrl {
 	    ModelAndView mv = new ModelAndView("redirect:/board/boardList");
 
 	    boardService.deleteBoard(commandMap.getMap());
+
+	    return mv;
+	}
+
+	@RequestMapping(value="/loan")
+	public ModelAndView loanCons(Loan loan) throws Exception{
+	    ModelAndView mv = new ModelAndView("redirect:/board/boardList");
 
 	    return mv;
 	}

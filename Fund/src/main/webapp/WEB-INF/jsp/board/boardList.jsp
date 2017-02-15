@@ -5,8 +5,8 @@
     <div class="container">
         <div class="row">
         	<div class="col-xs-12 col-sm-12 col-md-12">
-    			<h1 data-edit="true" data-selector="h1">Board List</h1>
-   			</div>        	
+    			<h3 data-edit="true" data-selector="h1">Board List</h3>
+   			</div>
 
             <div class="col-xs-8 col-sm-6 col-md-4 col-xs-offset-4 col-sm-offset-6 col-md-offset-8 search-box">
                 <div class="input-group">
@@ -38,7 +38,7 @@
                     <tbody>
                     <c:choose>
                     	<c:when test="${fn:length(list) > 0}">
-                    		<c:forEach var="row" items="${list}" varStatus="status">                  
+                    		<c:forEach var="row" items="${list}" varStatus="status">
                         		<tr>
                             		<td class="tpl-forum-list-num">${row.IDX }</td>
                             		<td class="tpl-forum-list-content"><a href="#this" name="title">${row.TITLE }</a>
@@ -57,46 +57,25 @@
                     </c:choose>
                     </tbody>
                 </table>
-                <c:if test="${not empty paginationInfo}">
-					<ui:pagination paginationInfo="${paginationInfo}" type="text"
-						jsFunction="boardList.fn_search" />
-				</c:if>
-				<input type="hidden" id="currentPageNo" name="currentPageNo" />
-
-				<br />
-				<a href="#this" class="btn" id="write">글쓰기</a>
-
-                <nav class="text-center">
-                    <ul class="pagination pagination-sm tpl-forum-pagination">
-                    	<li class="tpl-forum-page" >
-                    	<a href="#"><i class="fa fa-angle-left"></i></a></li>
-                    	<li class="tpl-forum-page active" ><a href="#">1</a></li>
-                    	<li class="tpl-forum-page"><a href="#" data-label="next"><i class="fa fa-angle-right"></i></a></li>
-                    	</ul>
-                </nav>
-                <button class="btn btn-default btn-sm tpl-forum-write" type="button" >write</button>
+                <div class="pagination">
+	                <c:if test="${not empty paginationInfo}">
+						<ui:pagination paginationInfo="${paginationInfo}" type="text"
+							jsFunction="boardList.fn_search" />
+					</c:if>
+					<input type="hidden" id="currentPageNo" name="currentPageNo" />
+					<br />
+				</div>
             </div>
-
         </div>
     </div>
 </div>
 <script type="text/javascript">
 	var boardList = {
 		init : function() {
-			$("#write").on("click", function(e) { //글쓰기 버튼
-				e.preventDefault();
-				boardList.fn_openBoardWrite();
-			});
-
 			$("a[name='title']").on("click", function(e) { //제목
 				e.preventDefault();
 				boardList.fn_openBoardDetail($(this));
 			});
-		},
-		fn_openBoardWrite : function() {
-			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("boardWrite");
-			comSubmit.submit();
 		},
 		fn_openBoardDetail : function(obj) {
 			var comSubmit = new ComSubmit();

@@ -81,7 +81,7 @@ public class UserCtrl extends BaseCtrl {
 		if (loginUser == null) {
 			jsonObj.put("status", "1");
 		} else {
-			session.setAttribute("user", user);
+			session.setAttribute("user", loginUser);
 			jsonObj.put("status", "0");
 		}
 
