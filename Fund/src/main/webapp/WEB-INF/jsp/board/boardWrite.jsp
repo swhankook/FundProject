@@ -1,62 +1,121 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<form id="frm">
-	<table class="board_view board_table">
-		<colgroup>
-			<col width="15%">
-			<col width="*" />
-		</colgroup>
-		<caption class="caption">게시글 작성</caption>
-		<tbody>
-			<tr>
-				<th scope="row">제목</th>
-				<td><input type="text" id="TITLE" name="TITLE" class="wdp_90"></input></td>
-			</tr>
-			<tr>
-				<td colspan="2" class="view_text"><textarea rows="15"
-						cols="100" title="내용" id="CONTENTS" name="CONTENTS"></textarea></td>
-			</tr>
-		</tbody>
-	</table>
-
-	<a href="#this" class="btn" id="write">작성하기</a> <a href="#this"
-		class="btn" id="list">목록으로</a>
-		<input type="hidden" id="userid" name="USERID" value="${user.email }">
-</form>
-<script type="text/javascript">
-	var boardWrite = {
-		init : function() {
-			$("#list").on("click", function(e){ //목록으로 버튼
-		        e.preventDefault();
-		        boardWrite.fn_openBoardList();
-		    });
-
-		    $("#write").on("click", function(e){ //작성하기 버튼
-		        e.preventDefault();
-		        boardWrite.fn_insertBoard();
-		    });
-		},
-		fn_openBoardList : function(){
-	    	var comSubmit = new ComSubmit()
-	    		, url = "boardList";
-	    	comSubmit.setUrl(url);
-	    	comSubmit.submit();
-		},
-		fn_insertBoard : function(){
-			if(gfn_isNull($('#userid').val())) {
-				alert("로그인이 되어있지않아 로그인화면으로 이동합니다.");
-				window.location.href = "/user/login";
-			} else if(gfn_isNull($('TITLE').text()) || gfn_isNull($('#CONTENTS').text())) {
-				alert("제목 또는 내용이 비어있습니다.");
-			} else {
-			    var comSubmit = new ComSubmit("frm")
-			    	, url = "boardInsert";
-			    comSubmit.setUrl(url);
-			    comSubmit.submit();
-			}
-		}
-	}
-	$(function() {
-		boardWrite.init();
-	});
-</script>
+    pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/jsp/template/include/lib.jsp"%>
+<div class="boardWrite">
+	<div class="row">
+	<form class="form-horizontal" action="" method="post" id="">
+	<fieldset class="pannel">
+		<div class="form-group">
+			<label class="col-md-3 control-label">대출목적</label>
+			<div class="col-md-4 selectContainer">
+			  	<div class="input-group">        
+				    <select name="period" class="form-control" >
+					      <option value="" >선택해 주세요</option>      
+					      <option>채무통합</option>
+					      <option>고금리 대환대출</option>
+					      <option>생활비</option>
+					      <option>자동차 구매</option>
+					      <option>보증금</option>
+					      <option >병원비</option>
+					      <option >결혼비용</option>      
+				    </select>
+				</div>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-md-4 control-label">희망 대출금액</label>
+			<div class="col-md-4 inputGroupContainer">
+  				<div class="input-group"> 					
+  					<input  name="money" placeholder="1000" class="form-control"  type="text">
+  					<div class="input-group-addon">만원</div>
+    			</div>
+  			</div>			 
+		</div>
+		<div class="form-group">
+			<label class="col-md-4 control-label">희망 대출기간</label>
+			<div class="col-md-4 periodContainer">
+			<ul>				
+				<li><button>6개월</button></li>
+				<li><button>12개월</button></li>
+				<li><button>18개월</button></li>
+				<li><button>24개월</button></li>
+				<li><button>30개월</button></li>				
+			</ul>
+			
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-md-4 control-label">연 소득</label>
+			<div class="col-md-4 inputGroupContainer">
+  				<div class="input-group"> 					
+  					<input  name="income-amount" placeholder="1000" class="form-control"  type="text">
+  					<div class="input-group-addon">만원</div>
+    			</div>
+  			</div>			 
+		</div>
+		
+		
+	
+		<div class="form-group">
+  			<label class="col-md-4 control-label" >성명</label> 
+    		<div class="col-md-4 inputGroupContainer">
+   				 <div class="input-group"> 		
+				 	 <input name="name" placeholder="홍길동" class="form-control"  type="text">
+				  </div>
+			 </div>
+		</div>
+		
+		<div class="form-group">
+  			<label class="col-md-4 control-label" >생년월일</label> 
+    		<div class="col-md-4 inputGroupContainer">
+   				 <div class="input-group"> 		
+				 	 <input name="birthday" placeholder="19880101" class="form-control"  type="text">
+				  </div>
+			 </div>
+		</div>
+		
+		<div class="form-group">
+  			<label class="col-md-4 control-label" >성별</label> 
+    		<div class="col-md-4 radioContainer">
+   				 <div class="radio"> 		
+				 	 <label class="radio-inline">
+				 	 	<input type="radio" name="sex" value="1" /> 남성				 	 	
+				 	 </label>
+				 	 <label class="radio-inline">
+				 	 	<input type="radio" name="sex" value="2" /> 여성				 	 	
+				 	 </label>
+				  </div>
+			 </div>
+		</div>
+		
+		<div class="form-group">
+  			<label class="col-md-4 control-label" >이메일</label> 
+    		<div class="col-md-4 inputGroupContainer">
+   				 <div class="input-group"> 		
+				 	 <input name="email" placeholder="fund@fund.com" class="form-control"  type="text">
+				  </div>
+			 </div>
+		</div>
+		
+		<div class="form-group">
+  			<label class="col-md-4 control-label" >휴대폰 번호</label> 
+    		<div class="col-md-4 inputGroupContainer">
+   				 <div class="input-group"> 		
+				 	 <input name="cellphone" placeholder="01012345678" class="form-control"  type="text">
+				  </div>
+			 </div>
+		</div>
+		<div></div>
+		<div class="form-group">
+  		<label class="col-md-4 control-label"></label>
+ 		<div class="col-md-4">
+  			<button class="btn btn-warning" type="submit">등록하기</button>
+ 		</div>
+	</div>					
+	</fieldset>
+	
+	</form>
+	</div>
+</div>
