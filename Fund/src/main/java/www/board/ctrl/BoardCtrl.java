@@ -32,25 +32,25 @@ public class BoardCtrl extends BaseCtrl {
 
 	@RequestMapping(value = "/boardList")
 	public void boardList(Model model, CommandMap commandMap) throws Exception {
-		Map<String,Object> resultMap = boardService.selectBoardList(commandMap.getMap());
+		Map<String, Object> resultMap = boardService.selectBoardList(commandMap.getMap());
 
-		model.addAttribute("paginationInfo", (PaginationInfo)resultMap.get("paginationInfo"));
+		model.addAttribute("paginationInfo", (PaginationInfo) resultMap.get("paginationInfo"));
 		model.addAttribute("list", resultMap.get("result"));
 	}
 
 	@RequestMapping(value = "/boardListTest")
 	public void boardListTest(Model model, CommandMap commandMap, HttpSession session) throws Exception {
-		Map<String,Object> resultMap = boardService.boardList(commandMap.getMap());
+		Map<String, Object> resultMap = boardService.boardList(commandMap.getMap());
 
-		model.addAttribute("paginationInfo", (PaginationInfo)resultMap.get("paginationInfo"));
+		model.addAttribute("paginationInfo", (PaginationInfo) resultMap.get("paginationInfo"));
 		User user = (User) session.getAttribute("user");
-		if(user == null) {
+		if (user == null) {
 			user = new User();
 			user.setEmail("admin");
 		}
 		List<Board> list = (List<Board>) resultMap.get("result");
-		for(Board board : list) {
-			if(!board.getCrea_id().equals(user.getEmail())) {
+		for (Board board : list) {
+			if (!board.getCrea_id().equals(user.getEmail())) {
 				board.setContents("비밀글입니다.");
 				board.setTitle("비밀글입니다.");
 			}
@@ -100,19 +100,36 @@ public class BoardCtrl extends BaseCtrl {
 		return mv;
 	}
 
-	@RequestMapping(value="/deleteBoard")
-	public ModelAndView deleteBoard(CommandMap commandMap) throws Exception{
-	    ModelAndView mv = new ModelAndView("redirect:/board/boardList");
+	@RequestMapping(value = "/deleteBoard")
+	public ModelAndView deleteBoard(CommandMap commandMap) throws Exception {
+		ModelAndView mv = new ModelAndView("redirect:/board/boardList");
 
-	    boardService.deleteBoard(commandMap.getMap());
+		boardService.deleteBoard(commandMap.getMap());
 
-	    return mv;
+		return mv;
 	}
 
-	@RequestMapping(value="/loan")
-	public ModelAndView loanCons(Loan loan) throws Exception{
-	    ModelAndView mv = new ModelAndView("redirect:/board/boardList");
-
-	    return mv;
+	@RequestMapping(value = "/loan")
+	public ModelAndView loanCons(CommandMap commandMap) throws Exception {
+		ModelAndView mv = null;
+		Map<String, Object> map = commandMap.getMap();
+		String purpose = map.get("purpose").toString();
+		String money = map.get("money").toString();
+		String period = map.get("period").toString();
+		String income = map.get("income").toString();
+		String name = map.get("name").toString();
+		String birthday = map.get("birthday").toString();
+		String sex = map.get("sex").toString();
+		String email = map.get("email").toString();
+		String phone = map.get("phone").toString();
+		if (StringUtils.isNotBlank(purpose) || StringUtils.isNotBlank(money) || StringUtils.isNotBlank(period)
+				|| StringUtils.isNotBlank(income) || StringUtils.isNotBlank(name) || StringUtils.isNotBlank(birthday)
+				|| StringUtils.isNotBlank(sex) || StringUtils.isNotBlank(email) || StringUtils.isNotBlank(phone)) {
+			boardService.insertBoard(commandMap.getMap());
+			mv = new ModelAndView("redirect:/board/boardList");
+		} else {
+			mv = new ModelAndView("redirect:/board/boardWrite");
+		}
+		return mv;
 	}
 }

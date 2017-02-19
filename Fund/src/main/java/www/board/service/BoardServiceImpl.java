@@ -18,14 +18,13 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public Map<String, Object> selectBoardList(Map<String, Object> map) throws Exception {
-	    return boardDao.selectBoardList(map);
+		return boardDao.selectBoardList(map);
 	}
 
 	@Override
 	public Map<String, Object> boardList(Map<String, Object> map) throws Exception {
-	    return boardDao.boardList(map);
+		return boardDao.boardList(map);
 	}
-
 
 	@Override
 	public void insertBoard(Map<String, Object> map) throws Exception {
@@ -40,12 +39,17 @@ public class BoardServiceImpl implements BoardService {
 	}
 
 	@Override
-	public void updateBoard(Map<String, Object> map) throws Exception{
+	public void updateBoard(Map<String, Object> map) throws Exception {
 		boardDao.updateBoard(map);
 	}
 
 	@Override
 	public void deleteBoard(Map<String, Object> map) throws Exception {
 		boardDao.deleteBoard(map);
+	}
+
+	@Override
+	public void insertLoanBoard(Map<String, Object> map) throws Exception {
+		boardDao.insertLoanBoard(map);
 	}
 }

@@ -20,17 +20,17 @@
 					      <option value="6">병원비</option>
 					      <option value="7">결혼비용</option>
 				    </select>
-				    
+
 				</div>
 			</div>
 		</div>
 		<div class="form-group row">
 			<label class="col-xs-4 control-label" for="money">희망 대출금액</label>
-			<div class="col-xs-6 inputGroupContainer">				
+			<div class="col-xs-6 inputGroupContainer">
 	  				<div class="input-group ">
 	  					<input name="money" id="money" placeholder="1000" class="form-control " type="text" dir='rtl' >
-	  					<span class="input-group-addon">만원</span>  						
-	    			</div>   			
+	  					<span class="input-group-addon">만원</span>
+	    			</div>
   			</div>
 		</div>
 		<div class="form-group row">
@@ -50,11 +50,11 @@
 		</div>
 		<div class="form-group row">
 			<label class="col-xs-4 control-label" for="income">연 소득</label>
-			<div class="col-xs-6 inputGroupContainer">				
+			<div class="col-xs-6 inputGroupContainer">
 	  				<div class="input-group ">
 	  					<input name="income" id="income" placeholder="1000" class="form-control" type="text" dir='rtl'>
 	  					<div class="input-group-addon">만원</div>
-	    			</div>    		
+	    			</div>
   			</div>
 		</div>
 		<div class="form-group row">
@@ -105,6 +105,7 @@
 		<div class= submitButton>
   			<button class="btn btn-success write-btn" type="button" onclick="boardWrite.loan();">등록하기</button>
 		</div>
+		<input type="hidden" id="userid" name="USERID" value="${user.email }">
 	</fieldset>
 	</form>
 	</div>
@@ -127,16 +128,16 @@
 			, name = $('#name').val()
 			, birthday = $('#birthday').val()
 			, sex = $('#sex').prop("checked")
-			, phone = $('#phone').val()	
+			, phone = $('#phone').val()
 			, email = $('#email').val()
 			, data = $('#write').serialize();
 			var url = "<c:url value='/board/loan' />?";
-			
+
 			var regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-			var regName = /([^가-힣ㄱ-ㅎㅏ-ㅣ\x20])/i; 
+			var regName = /([^가-힣ㄱ-ㅎㅏ-ㅣ\x20])/i;
 			var regPhone =  /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
-			
-			
+
+
 			if ( !purpose ) {
 	            alert('대출목적을 선택 해 주세요');
 	            $('#purpose').focus();
@@ -152,7 +153,7 @@
 	            $('#period').focus();
 	            return false;
 	        }
-	        	
+
 			if ( !income ) {
 	            alert('연소득을 입력 해 주세요');
 	            $('#income').focus();
@@ -171,8 +172,8 @@
 	            $('#name').focus();
 	            return false;
 	        }
-		
-			
+
+
 			if ( !birthday ) {
 	            alert('생년월일을 입력 해 주세요');
 	            $('#birthday').focus();
@@ -182,7 +183,7 @@
 	            $('#birthday').focus();
 	            return false;
 	        }
-	        
+
 	        if ( !sex ) {
 	            alert('성별을 선택해 주세요');
 	            $('#sex').focus();
@@ -208,31 +209,14 @@
 	            $('#phone').focus();
 	            return false;
 	        }
-			
-			
-			$.ajax({
-				url: url,
-				type:"post",
-				data:data,
-				datatype:"json",
-				success:function(data) {
-				},error:function(request, status, error){
-				}
-			});
+
+			var comSubmit = new ComSubmit("writeForm")
+		    	, url = "loan";
+		    comSubmit.setUrl(url);
+		    comSubmit.submit();
 		},
-	
-		
-		
 	}
 	$(function() {
 		boardWrite.init();
 	});
-	
-	
-		
-		
-		
-	
-	
-	
 </script>

@@ -1,5 +1,10 @@
 package www.common.common;
 
+import java.util.Date;
+import java.util.Map;
+
+import org.apache.commons.lang.StringUtils;
+
 public class Loan {
 	private int idx;
 	private int parent_idx;
@@ -10,8 +15,12 @@ public class Loan {
 	private String name;
 	private int birthday;
 	private String email;
-	private int phone;
+	private String phone;
 	private String sex;
+	private int hit_cnt;
+	private String del_gb;
+	private Date crea_dtm;
+	private String crea_id;
 
 	public int getIdx() {
 		return idx;
@@ -85,11 +94,11 @@ public class Loan {
 		this.email = email;
 	}
 
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
 
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 
@@ -99,5 +108,37 @@ public class Loan {
 
 	public void setSex(String sex) {
 		this.sex = sex;
+	}
+
+	public int getHit_cnt() {
+		return hit_cnt;
+	}
+
+	public void setHit_cnt(int hit_cnt) {
+		this.hit_cnt = hit_cnt;
+	}
+
+	public String getDel_gb() {
+		return del_gb;
+	}
+
+	public void setDel_gb(String del_gb) {
+		this.del_gb = del_gb;
+	}
+
+	public Date getCrea_dtm() {
+		return crea_dtm;
+	}
+
+	public void setCrea_dtm(Date crea_dtm) {
+		this.crea_dtm = crea_dtm;
+	}
+
+	public String getCrea_id() {
+		return crea_id;
+	}
+
+	public void setCrea_id(String crea_id) {
+		this.crea_id = crea_id;
 	}
 }
