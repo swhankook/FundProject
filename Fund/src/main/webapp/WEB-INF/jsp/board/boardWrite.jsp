@@ -98,7 +98,7 @@
   			<label class="col-xs-4 control-label" for="phone" >휴대폰 번호</label>
     		<div class="col-xs-6 inputGroupContainer">
    				 <div class="input-group">
-				 	 <input name="phone" id="phone" placeholder="01012345678" class="form-control"  type="text" >
+				 	 <input name="phone" id="phone" placeholder="010-1234-5678" class="form-control"  type="text" >
 				  </div>
 			 </div>
 		</div>
@@ -134,6 +134,8 @@
 			
 			var regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 			var regName = /([^가-힣ㄱ-ㅎㅏ-ㅣ\x20])/i; 
+			var regPhone =  /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
+			
 			
 			if ( !purpose ) {
 	            alert('대출목적을 선택 해 주세요');
@@ -175,7 +177,11 @@
 	            alert('생년월일을 입력 해 주세요');
 	            $('#birthday').focus();
 	            return false;
-	        } 
+	        } else if(birthday.length<6){
+	        	alert('생년월일이 유효하지 않습니다.');
+	            $('#birthday').focus();
+	            return false;
+	        }
 	        
 	        if ( !sex ) {
 	            alert('성별을 선택해 주세요');
@@ -195,6 +201,10 @@
 	        }
 			if ( !phone ) {
 	            alert('휴대폰번호를 입력 해 주세요');
+	            $('#phone').focus();
+	            return false;
+	        }else if(!regPhone.test(phone)){
+	        	alert('핸드폰번호가 유효하지 않습니다.');
 	            $('#phone').focus();
 	            return false;
 	        }
