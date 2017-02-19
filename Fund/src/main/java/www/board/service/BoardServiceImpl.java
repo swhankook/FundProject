@@ -52,4 +52,16 @@ public class BoardServiceImpl implements BoardService {
 	public void insertLoanBoard(Map<String, Object> map) throws Exception {
 		boardDao.insertLoanBoard(map);
 	}
+
+	@Override
+	public Map<String, Object> selectLoanList(Map<String, Object> map) throws Exception {
+		return boardDao.selectLoanList(map);
+	}
+
+	@Override
+	public Map<String, Object> selectLoanDetail(Map<String, Object> map) throws Exception {
+		boardDao.updateLoanHitCnt(map);
+		Map<String, Object> resultMap = boardDao.selectLoanDetail(map);
+		return resultMap;
+	}
 }

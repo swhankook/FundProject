@@ -108,42 +108,4 @@
             IDX = #{IDX}
     ]]>
 	</update>
-
-	<insert id="insertLoanBoard" parameterType="hashmap">
-    <![CDATA[
-        INSERT INTO LOAN_CONS
-        (
-            PURPOSE,
-            MONEY,
-            PERIOD,
-            INCOME,
-            NAME,
-            BIRTHDAY,
-            EMAIL,
-            PHONE,
-            SEX,
-            HIT_CNT,
-            DEL_GB,
-            CREA_DTM,
-            CREA_ID
-
-        )
-        VALUES
-        (
-            #{purpose},
-            #{money},
-            #{period},
-            #{income},
-            #{name},
-            #{birthday},
-            #{email},
-            #{phone},
-            #{sex},
-            0,
-            'N',
-            NOW(),
-            #{USERID}
-        )
-    ]]>
-	</insert>
 </mapper>

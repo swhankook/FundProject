@@ -1,9 +1,6 @@
 package www.common.common;
 
 import java.util.Date;
-import java.util.Map;
-
-import org.apache.commons.lang.StringUtils;
 
 public class Loan {
 	private int idx;
@@ -21,6 +18,7 @@ public class Loan {
 	private String del_gb;
 	private Date crea_dtm;
 	private String crea_id;
+	private int total_count;
 
 	public int getIdx() {
 		return idx;
@@ -140,5 +138,13 @@ public class Loan {
 
 	public void setCrea_id(String crea_id) {
 		this.crea_id = crea_id;
+	}
+
+	public int getTotal_count() {
+		return total_count;
+	}
+
+	public void setTotal_count(int total_count) {
+		this.total_count = total_count;
 	}
 }

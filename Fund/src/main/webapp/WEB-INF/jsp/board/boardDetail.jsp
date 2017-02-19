@@ -2,12 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/jsp/template/include/lib.jsp"%>
 <div class="forum-view">
-	 <input id="fm-id" type="hidden" value="13010">	
-	 <input id="fm-pid" type="hidden" value="628576">  
-	 <div class="container">      
-		  <div class="row">            
-			<div class="col-md-12 col-sm-12 col-xs-12">			
-				<ul class="forum-user-info">					
+	 <input id="fm-id" type="hidden" value="13010">
+	 <input id="fm-pid" type="hidden" value="628576">
+	 <div class="container">
+		  <div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<ul class="forum-user-info">
 					<li class="user-image tpl-forum-myimage">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
 							<pattern id="forum-view-image" patternUnits="userSpaceOnUse" width="40" height="40">
@@ -15,44 +15,44 @@
 							</pattern>
 							<polygon fill="url(#forum-view-image)" points="20,0 37,10 37,30 20,40 3,30 3,10" />
 						</svg>
-					</li>					
+					</li>
 					<li class="user-info">
 						<div class="tpl-forum-name">${map.CREA_ID }</div>
 						<div class="tpl-forum-date date">${map.CREA_DTM }</div>
-						<div class="tpl-forum-hit hit">${map.HIT_CNT }</div></li>					
+						<div class="tpl-forum-hit hit">${map.HIT_CNT }</div></li>
 					<li class="user-ctrl navbar-right">
 						<img id="forum-ctrl" aria-expanded="true" aria-haspopup="true" src="//i.addblock.net/icon/icon-user-ctrl.png" data-toggle="dropdown">
-						<ul class="dropdown-menu" aria-labelledby="forum-ctrl">	
+						<ul class="dropdown-menu" aria-labelledby="forum-ctrl">
 							<li>
 								<a class="tpl-forum-write" href="#this" data-id="13010" data-pid="628576" class="btn" id="update">수정</a>
-							</li>	
+							</li>
 							<li>
 								<a class="tpl-forum-delete" href="#" data-id="13010" data-pid="628576">삭제</a>
 							</li>
 						</ul>
-					</li>				
-				</ul>				
-				<div class="tpl-forum-title">${map.TITLE }</div>				
-				<div class="tpl-forum-content">${map.CONTENTS }</div>				
-				<div class="tpl-forum-list-footer">       
-					<ul class="tpl-page-toolbar" data-page-option="">          
+					</li>
+				</ul>
+				<div class="tpl-forum-title">${map.TITLE }</div>
+				<div class="tpl-forum-content">${map.CONTENTS }</div>
+				<div class="tpl-forum-list-footer">
+					<ul class="tpl-page-toolbar" data-page-option="">
 				 		<li class="tpl-forum-toolbar-button share">
 							<i class="fa fa-share"></i>
-						</li>       
-					</ul>					
-					<div class="tpl-forum-control-wrap" style="float: right;">						
+						</li>
+					</ul>
+					<div class="tpl-forum-control-wrap" style="float: right;">
 						<button class="btn btn-default btn-round btn-modal btn-list tpl-forum-list" type="button" id="list">
 							 <i class="fa fa-bars"> </i>
 							 <a href="#this" class="btn" >목록</a>
-						</button>						
+						</button>
 						<button class="btn btn-default btn-round btn-modal btn-list tpl-forum-write" type="button" data-pid="628576" data-reply="13010">
-							<i class="fa fa-reply"></i> 
+							<i class="fa fa-reply"></i>
 							&nbsp;답글
-						</button>					
-					</div>				
-				</div>            
-			</div>        
-		</div>    
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 

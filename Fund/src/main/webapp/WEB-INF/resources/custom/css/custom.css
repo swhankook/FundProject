@@ -37,22 +37,36 @@
 
 .pagination
 
+
+
 a
+
+
 :hover
+
+
 :not
+
+
 
 (
 .active
 
+
+
 )
 {
 background-color
+
+
 :
 
+
+
 #ddd
+
+
 ;
-
-
 }
 .pagination a:first-child {
 	border-top-left-radius: 5px;
@@ -72,7 +86,8 @@ background-color
 	width: 600px;
 	background: #F9F9F9;
 	padding-top: 20px;
-	padding-bottom: 20px; margin : auto;
+	padding-bottom: 20px;
+	margin: auto;
 	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0
 		rgba(0, 0, 0, 0.24);
 	margin: auto;
@@ -84,4 +99,8 @@ background-color
 
 .write-btn {
 	width: 300px !important;
+}
+
+.submitButton {
+	text-align: center;
 }

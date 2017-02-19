@@ -16,4 +16,8 @@ public interface BoardService {
 	void deleteBoard(Map<String, Object> map) throws Exception;
 
 	void insertLoanBoard(Map<String, Object> map) throws Exception;
+
+	Map<String, Object> selectLoanList(Map<String, Object> map) throws Exception;
+
+	Map<String, Object> selectLoanDetail(Map<String, Object> map) throws Exception;
 }

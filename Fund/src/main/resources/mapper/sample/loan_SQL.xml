@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="loan">
+	<insert id="insertLoanBoard" parameterType="hashmap">
+    <![CDATA[
+        INSERT INTO LOAN_CONS
+        (
+            PURPOSE,
+            MONEY,
+            PERIOD,
+            INCOME,
+            NAME,
+            BIRTHDAY,
+            EMAIL,
+            PHONE,
+            SEX,
+            HIT_CNT,
+            DEL_GB,
+            CREA_DTM,
+            CREA_ID
+        )
+        VALUES
+        (
+            #{purpose},
+            #{money},
+            #{period},
+            #{income},
+            #{name},
+            #{birthday},
+            #{email},
+            #{phone},
+            #{sex},
+            0,
+            'N',
+            NOW(),
+            #{USERID}
+        )
+    ]]>
+	</insert>
+
+	<select id="selectLoanList" parameterType="hashmap" resultType="hashmap">
+		<include refid="common.pagingPre" />
+	    <![CDATA[
+	        SELECT
+	            IDX,
+	            PURPOSE,
+	            MONEY,
+	            PERIOD,
+	            INCOME,
+	            NAME,
+	            BIRTHDAY,
+	            EMAIL,
+	            PHONE,
+	            SEX,
+	            HIT_CNT,
+	            DEL_GB,
+	            CREA_DTM,
+	            CREA_ID
+	        FROM
+	            LOAN_CONS
+	        WHERE
+	            DEL_GB = 'N'
+	    ]]>
+		<include refid="common.pagingPost" />
+	</select>
+
+	<update id="updateLoanHitCnt" parameterType="hashmap">
+    <![CDATA[
+        UPDATE LOAN_CONS
+        SET
+            HIT_CNT = ifnull(HIT_CNT, 0) + 1
+        WHERE
+            IDX = #{IDX}
+    ]]>
+	</update>
+
+	<select id="selectLoanDetail" parameterType="hashmap"
+		resultType="hashmap">
+    <![CDATA[
+        SELECT
+            IDX,
+            PURPOSE,
+            MONEY,
+            PERIOD,
+            INCOME,
+            NAME,
+            BIRTHDAY,
+            EMAIL,
+            PHONE,
+            SEX,
+            HIT_CNT,
+            DEL_GB,
+            CREA_DTM,
+            CREA_ID
+        FROM
+            LOAN_CONS
+        WHERE
+            IDX = #{IDX}
+    ]]>
+	</select>
+</mapper>

@@ -17,7 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 import www.board.service.BoardService;
 import www.common.common.Board;
 import www.common.common.CommandMap;
-import www.common.common.Loan;
 import www.common.common.User;
 import www.common.ctrl.BaseCtrl;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
@@ -126,10 +125,24 @@ public class BoardCtrl extends BaseCtrl {
 				|| StringUtils.isNotBlank(income) || StringUtils.isNotBlank(name) || StringUtils.isNotBlank(birthday)
 				|| StringUtils.isNotBlank(sex) || StringUtils.isNotBlank(email) || StringUtils.isNotBlank(phone)) {
 			boardService.insertBoard(commandMap.getMap());
-			mv = new ModelAndView("redirect:/board/boardList");
+			mv = new ModelAndView("redirect:/board/loanList");
 		} else {
 			mv = new ModelAndView("redirect:/board/boardWrite");
 		}
 		return mv;
+	}
+
+	@RequestMapping(value = "/loanList")
+	public void loanList(Model model, CommandMap commandMap) throws Exception {
+		Map<String, Object> resultMap = boardService.selectLoanList(commandMap.getMap());
+
+		model.addAttribute("paginationInfo", (PaginationInfo) resultMap.get("paginationInfo"));
+		model.addAttribute("list", resultMap.get("result"));
+	}
+
+	@RequestMapping(value = "/loanDetail")
+	public void openLoanDetail(Model mv, CommandMap commandMap) throws Exception {
+		Map<String, Object> map = boardService.selectLoanDetail(commandMap.getMap());
+		mv.addAttribute("map", map);
 	}
 }

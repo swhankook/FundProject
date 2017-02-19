@@ -20,7 +20,6 @@
 					      <option value="6">병원비</option>
 					      <option value="7">결혼비용</option>
 				    </select>
-
 				</div>
 			</div>
 		</div>
@@ -102,7 +101,7 @@
 				  </div>
 			 </div>
 		</div>
-		<div class= submitButton>
+		<div class="submitButton">
   			<button class="btn btn-success write-btn" type="button" onclick="boardWrite.loan();">등록하기</button>
 		</div>
 		<input type="hidden" id="userid" name="USERID" value="${user.email }">
