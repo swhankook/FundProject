@@ -18,3 +18,5 @@
 <!-- script 추가. -->
 <script src="${customJs }common.js"></script>
 <script src="${themeJs }login.js"></script>
+<script src="${themeJs }jquery.validate.js"></script>
+

@@ -8,20 +8,7 @@
     			<h3 data-edit="true" data-selector="h1">Board List</h3>
    			</div>
 
-            <div class="col-xs-8 col-sm-6 col-md-4 col-xs-offset-4 col-sm-offset-6 col-md-offset-8 search-box">
-                <div class="input-group">
-                    <div class="input-group-btn">
-                        <select id="sfl" class="form-control" name="sfl" placeholder="Search">
-                            <option value="all">전체</option>
-                            <option value="title">제목</option>
-                            <option value="content">내용</option>
-                        </select>
-                    </div>
-                    <input name="stx" class="form-control" id="stx" type="text" value="">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default search-btn" type="button"><i class="fa fa-search"></i></button>
-                    </span>
-                </div>
+            <div class="col-xs-8 col-sm-6 col-md-4 col-xs-offset-4 col-sm-offset-6 col-md-offset-8 search-box">                
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12 clear-left">
@@ -88,7 +75,8 @@
 			comSubmit.setUrl("boardList");
 			comSubmit.addParam("currentPageNo", pageNo);
 			comSubmit.submit();
-		}
+		},
+		
 	}
 	$(function() {
 		boardList.init();

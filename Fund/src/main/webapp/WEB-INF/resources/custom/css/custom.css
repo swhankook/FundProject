@@ -13,6 +13,8 @@
 
 .pagination {
 	display: inline-block;
+	margin-left:200px;
+	
 }
 
 .pagination a {
@@ -37,36 +39,22 @@
 
 .pagination
 
-
-
 a
-
-
 :hover
-
-
 :not
-
-
 
 (
 .active
 
-
-
 )
 {
 background-color
-
-
 :
 
-
-
 #ddd
-
-
 ;
+
+
 }
 .pagination a:first-child {
 	border-top-left-radius: 5px;
@@ -86,21 +74,49 @@ background-color
 	width: 600px;
 	background: #F9F9F9;
 	padding-top: 20px;
-	padding-bottom: 20px;
-	margin: auto;
+	padding-bottom: 20px; margin : auto;
 	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0
 		rgba(0, 0, 0, 0.24);
 	margin: auto;
 }
 
-.money {
-	width: 100px !important;
-}
-
 .write-btn {
 	width: 300px !important;
 }
+.submitButton{text-align:center;}
 
-.submitButton {
-	text-align: center;
+
+.menu {
+  
+  display: inline-block;
+  
 }
+.drop-menu { margin: 0; padding: 0; }
+.drop-menu li {
+  float: left;
+  list-style:none;
+  position: relative;
+}
+
+.drop-menu a {
+  color: white;
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+.drop-menu ul {
+	text-align: center;
+  background: #eee;
+  border: 1px solid silver;
+  display: none;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  top: 70px;
+  width: 135px;
+}
+.drop-menu ul li { float: none; }
+.drop-menu ul li.expand { background: #ddd; }
+.drop-menu ul li.expand a { color: black; }
+.drop-menu ul a { color: black; }
+.drop-menu ul ul { left: 100%; top: 0; }

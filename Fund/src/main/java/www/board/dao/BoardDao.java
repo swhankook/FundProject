@@ -3,6 +3,7 @@ package www.board.dao;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import www.common.dao.AbstractDAO;
 

@@ -68,12 +68,12 @@
 		init : function() {
 			$("a[name='title']").on("click", function(e) { //제목
 				e.preventDefault();
-				boardList.fn_openBoardDetail($(this));
+				loanList.fn_openBoardDetail($(this));
 			});
 		},
 		fn_openBoardDetail : function(obj) {
 			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("loanDetail");
+			comSubmit.setUrl("boardDetail");
 			comSubmit.addParam("IDX", obj.parent().find("#IDX").val());
 			comSubmit.submit();
 		},

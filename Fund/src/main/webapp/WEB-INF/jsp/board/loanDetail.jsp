@@ -57,7 +57,7 @@
   			<label class="col-xs-4 control-label" for="name">성명</label>
     		<div class="col-xs-6 inputGroupContainer">
    				 <div class="input-group">
-				 	 <input name="name" id="name" value=${map.name } class="form-control"  type="text" >
+				 	 <input name="name" id="name" value="${map.name }" class="form-control"  type="text" >
 				  </div>
 			 </div>
 		</div>

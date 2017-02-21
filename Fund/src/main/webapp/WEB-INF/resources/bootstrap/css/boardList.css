@@ -87,6 +87,7 @@
  min-width: 90px;
  box-shadow: none;
 }
+
 .boardList .pagination > li > a {   
  font-family:  'Open sans', 'Nanum Gothic';
  font-size: 12px; 

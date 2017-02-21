@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import www.board.dao.BoardDao;
 
@@ -48,6 +49,7 @@ public class BoardServiceImpl implements BoardService {
 		boardDao.deleteBoard(map);
 	}
 
+	@Transactional
 	@Override
 	public void insertLoanBoard(Map<String, Object> map) throws Exception {
 		boardDao.insertLoanBoard(map);

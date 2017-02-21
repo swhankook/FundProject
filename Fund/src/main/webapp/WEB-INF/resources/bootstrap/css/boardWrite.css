@@ -10,27 +10,29 @@
 align-content:center;
 }
 
-.boardWrite button[type="submit"] {
-  cursor: pointer;
-  width: 100%;
-  border: none;
-  background: #4CAF50;
-  color: #FFF;
-  margin: 0 0 5px;
-  padding: 10px;
-  font-size: 15px;
-}
 
-.boardWrite button[type="submit"]:hover {
-  background: #43A047;
-  -webkit-transition: background 0.3s ease-in-out;
-  -moz-transition: background 0.3s ease-in-out;
-  transition: background-color 0.3s ease-in-out;
-}
 
-.boardWrite button[type="submit"]:active {
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
-}
+/* .boardWrite button[type="submit"] { */
+/*   cursor: pointer; */
+/*   width: 100%; */
+/*   border: none; */
+/*   background: #4CAF50; */
+/*   color: #FFF; */
+/*   margin: 0 0 5px; */
+/*   padding: 10px; */
+/*   font-size: 15px; */
+/* } */
+
+/* .boardWrite button[type="submit"]:hover { */
+/*   background: #43A047; */
+/*   -webkit-transition: background 0.3s ease-in-out; */
+/*   -moz-transition: background 0.3s ease-in-out; */
+/*   transition: background-color 0.3s ease-in-out; */
+/* } */
+
+/* .boardWrite button[type="submit"]:active { */
+/*   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5); */
+/* } */
 
 .pannel .form-group{
 	
@@ -40,3 +42,30 @@ align-content:center;
 
 .form-group ul{list-style-type:none;margin:0;padding:0}
 .form-group li{float:left}
+
+.boardWrite button {
+	font-family: "Roboto", sans-serif;
+	text-transform: uppercase;
+	outline: 0;
+	background: #4CAF50;
+	width: 100%;
+	border: 0;
+	padding: 15px;
+	color: #FFFFFF;
+	font-size: 14px;
+	-webkit-transition: all 0.3 ease;
+	transition: all 0.3 ease;
+	cursor: pointer;
+}
+
+.boardWrite button:hover, .boardWrite button:active, .boardWrite button:focus {
+	background: #43A047;
+}
+
+.input-group {
+	width:280px;
+}
+.boardWrite label{
+	font-weight:600;
+	color:gray;
+}
