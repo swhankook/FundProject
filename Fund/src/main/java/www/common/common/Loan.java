@@ -19,6 +19,7 @@ public class Loan {
 	private Date crea_dtm;
 	private String crea_id;
 	private int total_count;
+	private int sub_count;
 
 	public int getIdx() {
 		return idx;
@@ -146,5 +147,13 @@ public class Loan {
 
 	public void setTotal_count(int total_count) {
 		this.total_count = total_count;
+	}
+
+	public int getSub_count() {
+		return sub_count;
+	}
+
+	public void setSub_count(int sub_count) {
+		this.sub_count = sub_count;
 	}
 }

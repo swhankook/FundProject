@@ -42,25 +42,26 @@
 	<select id="selectLoanList" parameterType="hashmap" resultType="hashmap">
 		<include refid="common.pagingPre" />
 	    <![CDATA[
-	        SELECT
-	            IDX,
-	            PURPOSE,
-	            MONEY,
-	            PERIOD,
-	            INCOME,
-	            NAME,
-	            BIRTHDAY,
-	            EMAIL,
-	            PHONE,
-	            SEX,
-	            HIT_CNT,
-	            DEL_GB,
-	            CREA_DTM,
-	            CREA_ID
-	        FROM
-	            LOAN_CONS
-	        WHERE
-	            DEL_GB = 'N'
+		        SELECT
+		            IDX,
+		            PURPOSE,
+		            MONEY,
+		            PERIOD,
+		            INCOME,
+		            NAME,
+		            BIRTHDAY,
+		            EMAIL,
+		            PHONE,
+		            SEX,
+		            HIT_CNT,
+		            DEL_GB,
+		            CREA_DTM,
+		            CREA_ID,
+		            (SELECT COUNT(IDX) FROM TB_BOARD WHERE PARENT_IDX = LC.IDX) as SUB_COUNT
+		        FROM
+		            LOAN_CONS LC
+		        WHERE
+		            DEL_GB = 'N'
 	    ]]>
 		<include refid="common.pagingPost" />
 	</select>
