@@ -1,5 +1,6 @@
 package www.board.service;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -65,5 +66,10 @@ public class BoardServiceImpl implements BoardService {
 		boardDao.updateLoanHitCnt(map);
 		Map<String, Object> resultMap = boardDao.selectLoanDetail(map);
 		return resultMap;
+	}
+
+	@Override
+	public List<Map<String, Object>> selectSubLoanList(Map<String, Object> map) throws Exception {
+		return boardDao.selectSubLoanList(map);
 	}
 }

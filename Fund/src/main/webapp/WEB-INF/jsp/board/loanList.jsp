@@ -26,15 +26,18 @@
                             		<td class="tpl-forum-list-num">${row.IDX }</td>
                             		<td class="tpl-forum-list-content"><a href="#this" name="title">
                             		<c:choose>
-                            			<c:when test="${row.purpose eq 1}">채무통합</c:when>
-                            			<c:when test="${row.purpose eq 2}">고금리 대환대출</c:when>
-                            			<c:when test="${row.purpose eq 3}">생활비</c:when>
-                            			<c:when test="${row.purpose eq 4}">자동차 구매</c:when>
-                            			<c:when test="${row.purpose eq 5}">보증금</c:when>
-                            			<c:when test="${row.purpose eq 6}">병원비</c:when>
-                            			<c:when test="${row.purpose eq 7}">결혼비용</c:when>
+                            			<c:when test="${row.PURPOSE eq 1}">채무통합</c:when>
+                            			<c:when test="${row.PURPOSE eq 2}">고금리 대환대출</c:when>
+                            			<c:when test="${row.PURPOSE eq 3}">생활비</c:when>
+                            			<c:when test="${row.PURPOSE eq 4}">자동차 구매</c:when>
+                            			<c:when test="${row.PURPOSE eq 5}">보증금</c:when>
+                            			<c:when test="${row.PURPOSE eq 6}">병원비</c:when>
+                            			<c:when test="${row.PURPOSE eq 7}">결혼비용</c:when>
                             			<c:otherwise>관리자에게 문의바랍니다.</c:otherwise>
                             		</c:choose>
+                            		<c:if test="${row.SUB_COUNT ne 0 }">
+                            		[${row.SUB_COUNT }]
+                            		</c:if>
                             		</a>
 										<input type="hidden" id="IDX" value="${row.IDX }"></td>
                             		<td class="tpl-forum-list-name">${row.CREA_ID }</td>
@@ -61,6 +64,8 @@
 				</div>
             </div>
         </div>
+        <input type="hidden" id="USERID" name="USERID" value="${user.email }">
+    	<input type="hidden" id="TYPE" name="TYPE" value="${user.type }">
     </div>
 </div>
 <script type="text/javascript">
@@ -72,9 +77,19 @@
 			});
 		},
 		fn_openBoardDetail : function(obj) {
+			var user = $('#USERID').val()
+				, company = $('TYPE').val();
+			if(user == "") {
+				alert('회사회원만 볼수있습니다. 로그인해주세요.');
+				return;
+			} else if(type != "company"){
+				alert('회사회원만 볼수있습니다. 회사계정으로 로그인해주세요.');
+				return;
+			}
 			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("boardDetail");
+			comSubmit.setUrl("loanDetail");
 			comSubmit.addParam("IDX", obj.parent().find("#IDX").val());
+			comSubmit.addParam("PARENT_IDX", obj.parent().find("#IDX").val());
 			comSubmit.submit();
 		},
 		fn_search : function(pageNo) {
