@@ -124,7 +124,7 @@ public class BoardCtrl extends BaseCtrl {
 		if (StringUtils.isNotBlank(purpose) || StringUtils.isNotBlank(money) || StringUtils.isNotBlank(period)
 				|| StringUtils.isNotBlank(income) || StringUtils.isNotBlank(name) || StringUtils.isNotBlank(birthday)
 				|| StringUtils.isNotBlank(sex) || StringUtils.isNotBlank(email) || StringUtils.isNotBlank(phone)) {
-			boardService.insertBoard(commandMap.getMap());
+			boardService.insertLoanBoard(commandMap.getMap());
 			mv = new ModelAndView("redirect:/board/loanList");
 		} else {
 			mv = new ModelAndView("redirect:/board/boardWrite");
