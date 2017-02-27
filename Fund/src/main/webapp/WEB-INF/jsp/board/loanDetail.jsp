@@ -97,21 +97,21 @@
 	</form>
 	</div>
 	<c:if test="${fn:length(list) > 0}">
+	<c:forEach var="row" items="${list}" varStatus="status">
 	<div class="tpl-comment-form">
 		<table class="comment-textarea">
 			<tbody>
-				<c:forEach var="row" items="${list}" varStatus="status">
 				<tr>
 					<td class="comm-area">
 						<input type="hidden" name="IDX" id="IDX" value="${row.IDX}">
 						<input type="hidden" id="userid" name="USERID" value="${row.CREA_ID }">
-						<textarea class="form-control" id="CONTENTS" name="CONTENTS" data-autoresize="">${row.CONTENTS }</textarea>
+						<textarea class="form-control" disabled="disabled" id="CONTENTS" name="CONTENTS" data-autoresize="">${row.CONTENTS }</textarea>
 					</td>
 				</tr>
-				</c:forEach>
 			</tbody>
 		</table>
 	</div>
+	</c:forEach>
 	</c:if>
 	<form class="page-comments" id="sub_frm" >
 	<div class="container">
@@ -134,7 +134,7 @@
 				</tbody>
 			</table>
 		</div>
-		
+
 	</div>
 	</form>
 </div>
