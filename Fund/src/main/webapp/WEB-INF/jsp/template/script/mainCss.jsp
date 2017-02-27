@@ -22,4 +22,3 @@
 <link href="${themeCss }boardDetail.css" rel="stylesheet" />
 <link href="${themeCss }reply.css" rel="stylesheet" />
 <link href="${themeCss }boardWrite.css" rel="stylesheet" />
-<link href="${themeCss }bootstrapValidator.min.css" rel="stylesheet" />
