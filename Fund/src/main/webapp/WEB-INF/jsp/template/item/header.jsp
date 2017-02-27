@@ -24,28 +24,20 @@
 						<ul class="nav nav-tabs drop-menu" role="tablist">
 							<li role="presentation"><a href="/home/home" class="active">Home</a></li>
 							<li role="presentation"><a href="/loan/loanWrite">대출받기</a></li>
-							<c:if test="${not empty user && user.type eq 'company'}">
-								<li role="presentation"><a href="/loan/loanList">대출확인</a></li>
-							</c:if>
 							<c:choose>
 								<c:when test="${not empty user && user.type eq 'company'}">
-										<li role="presentation" ><a href="#" onclick="header.logout();">로그아웃</a></li>
+									<li role="presentation"><a href="/loan/loanList">대출확인</a></li>
+									<li role="presentation" ><a href="#" onclick="header.logout();">로그아웃</a></li>
 								</c:when>
 								<c:when test="${not empty user && user.type eq 'user'}">
-										<li role="presentation"><a href="#">마이페이지</a>
-
-												<ul>
-													<li role="presentation" ><a href="#" onclick="header.logout();">로그아웃</a></li>
-													<li role="presentation" ><a href="#" onclick="header.logout();">로그아웃</a></li>
-												</ul>
-										</li>
+									<li role="presentation"><a href="/loan/loanMyList">신청확인.</a></li>
+									<li role="presentation" ><a href="#" onclick="header.logout();">로그아웃</a></li>
 								</c:when>
 								<c:otherwise>
 								<li role="presentation"><a href="/user/join">회원가입</a></li>
 								<li role="presentation"><a href="/user/login">로그인</a></li>
 								</c:otherwise>
 							</c:choose>
-
 						</ul>
 					</div>
 				</div>
