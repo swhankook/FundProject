@@ -105,7 +105,9 @@
 					<td class="comm-area">
 						<input type="hidden" name="IDX" id="IDX" value="${row.IDX}">
 						<input type="hidden" id="userid" name="USERID" value="${row.CREA_ID }">
+						<span class= "pull-right"><a href="#this" class="btn" id="write">수정</a> <a href="#this" class="btn" id="list">삭제</a></span>
 						<textarea class="form-control" id="CONTENTS" name="CONTENTS" data-autoresize="">${row.CONTENTS }</textarea>
+						
 					</td>
 				</tr>
 				</c:forEach>
@@ -142,6 +144,16 @@
 <script type="text/javascript">
 	var loanDetail = {
 		init : function() {
+			$("#update").on("click", function(e) {
+				e.preventDefault();
+				boardDetail.fn_openBoardUpdate();
+			});
+			$("#delete").on("click", function(e){ //삭제하기 버튼
+
+                e.preventDefault();
+                boardDetail.fn_deleteBoard();
+
+            });
 
 		},
 		subLoan:function() {
@@ -149,7 +161,23 @@
 	    	, url = "subLoanWrite";
 		    comSubmit.setUrl(url);
 		    comSubmit.submit();
-		}
+		},
+		fn_openBoardUpdate : function() {
+			var idx = "${map.IDX}";
+			var comSubmit = new ComSubmit();
+			comSubmit.setUrl("boardUpdate");
+			comSubmit.addParam("IDX", idx);
+			comSubmit.submit();
+		},
+
+		fn_deleteBoard: function(){
+			var idx = "${map.IDX}";
+            var comSubmit = new ComSubmit();
+            comSubmit.setUrl("deleteBoard");
+            comSubmit.addParam("IDX", idx);
+            comSubmit.submit();
+
+        }
 	}
 	$(function() {
 		loanDetail.init();
