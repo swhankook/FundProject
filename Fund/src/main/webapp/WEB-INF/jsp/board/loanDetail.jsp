@@ -105,9 +105,7 @@
 					<td class="comm-area">
 						<input type="hidden" name="IDX" id="IDX" value="${row.IDX}">
 						<input type="hidden" id="userid" name="USERID" value="${row.CREA_ID }">
-						<span class= "pull-right"><a href="#this" class="btn" id="write">수정</a> <a href="#this" class="btn" id="list">삭제</a></span>
 						<textarea class="form-control" id="CONTENTS" name="CONTENTS" data-autoresize="">${row.CONTENTS }</textarea>
-						
 					</td>
 				</tr>
 				</c:forEach>
