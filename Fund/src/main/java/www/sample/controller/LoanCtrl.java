@@ -1,6 +1,7 @@
 package www.sample.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -38,7 +39,13 @@ public class LoanCtrl extends BaseCtrl {
 
 	@RequestMapping(value = "/loanDetail")
 	public void openBoardDetail(Model mv, CommandMap commandMap) throws Exception {
+		Map<String, Object> data = commandMap.getMap();
+		logger.debug(data.get("IDX").toString());
+
 		Map<String, Object> map = boardService.selectLoanDetail(commandMap.getMap());
+		List<Map<String, Object>> list = boardService.selectSubLoanList(commandMap.getMap());
+
+		mv.addAttribute("list", list);
 		mv.addAttribute("map", map);
 	}
 
