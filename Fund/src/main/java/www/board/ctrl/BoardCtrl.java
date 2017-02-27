@@ -144,7 +144,6 @@ public class BoardCtrl extends BaseCtrl {
 	public void openLoanDetail(Model mv, CommandMap commandMap) throws Exception {
 		Map<String, Object> map = boardService.selectLoanDetail(commandMap.getMap());
 		List<Map<String, Object>> list = boardService.selectSubLoanList(commandMap.getMap());
-		
 
 		mv.addAttribute("map", map);
 		mv.addAttribute("list", list);
@@ -160,6 +159,16 @@ public class BoardCtrl extends BaseCtrl {
 		mv = new ModelAndView("redirect:/board/loanDetial");
 
 		return mv;
+	}
+
+
+	
+	@RequestMapping(value = "/loanMyList")
+	public void loanMyList(Model model, CommandMap commandMap) throws Exception {
+		Map<String, Object> resultMap = boardService.selectLoanList(commandMap.getMap());
+
+		model.addAttribute("paginationInfo", (PaginationInfo) resultMap.get("paginationInfo"));
+		model.addAttribute("list", resultMap.get("result"));
 	}
 	
 	
