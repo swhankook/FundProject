@@ -22,10 +22,10 @@
 				<div class="navbar-collapse collapse ">
 					<div class="menu">
 						<ul class="nav nav-tabs drop-menu" role="tablist">
-							<li role="presentation"><a href="/sample/boardList" class="active">Home</a></li>
-							<li role="presentation"><a href="/board/boardWrite">대출받기</a></li>
+							<li role="presentation"><a href="/home/home" class="active">Home</a></li>
+							<li role="presentation"><a href="/loan/loanWrite">대출받기</a></li>
 							<c:if test="${not empty user && user.type eq 'company'}">
-								<li role="presentation"><a href="/board/boardList">대출확인</a></li>
+								<li role="presentation"><a href="/loan/loanList">대출확인</a></li>
 							</c:if>
 							<c:choose>
 								<c:when test="${not empty user && user.type eq 'company'}">

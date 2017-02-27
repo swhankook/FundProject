@@ -144,12 +144,11 @@
 		init : function() {
 			$("#update").on("click", function(e) {
 				e.preventDefault();
-				boardDetail.fn_openBoardUpdate();
+				loanDetail.fn_openBoardUpdate();
 			});
 			$("#delete").on("click", function(e){ //삭제하기 버튼
-
                 e.preventDefault();
-                boardDetail.fn_deleteBoard();
+                loanDetail.fn_deleteBoard();
 
             });
 
@@ -163,7 +162,7 @@
 		fn_openBoardUpdate : function() {
 			var idx = "${map.IDX}";
 			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("boardUpdate");
+			comSubmit.setUrl("subLoanUpdate");
 			comSubmit.addParam("IDX", idx);
 			comSubmit.submit();
 		},
@@ -171,7 +170,7 @@
 		fn_deleteBoard: function(){
 			var idx = "${map.IDX}";
             var comSubmit = new ComSubmit();
-            comSubmit.setUrl("deleteBoard");
+            comSubmit.setUrl("subLoanDelete");
             comSubmit.addParam("IDX", idx);
             comSubmit.submit();
 

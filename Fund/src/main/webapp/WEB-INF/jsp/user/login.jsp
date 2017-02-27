@@ -68,7 +68,7 @@
 						$('#pwd').focus();
 					} else if (data.status == 0) {
 						alert("로그인 성공. 홈으로 이동합니다.");
-						window.location.href = "/board/loanList";
+						window.location.href = "/loan/loanList";
 					}
 				},error:function(request, status, error){
 					console.log(request, status, error)
