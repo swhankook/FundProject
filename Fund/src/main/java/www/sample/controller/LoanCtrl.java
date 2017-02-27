@@ -25,16 +25,6 @@ public class LoanCtrl extends BaseCtrl {
 	@Resource(name = "boardService")
 	private BoardService boardService;
 
-    @RequestMapping(value="/list")
-    public void list(Model model, Map<String,Object> commandMap) throws Exception{
-    	model.addAttribute("test","tttttttttt");
-    }
-
-    @RequestMapping(value="/check")
-    public void check(Model model, Map<String,Object> commandMap) throws Exception{
-    	model.addAttribute("test","tttttttttt");
-    }
-
     @RequestMapping(value = "/loanWrite")
 	public void boardWrite(Model model, CommandMap commandMap) throws Exception {
 	}
