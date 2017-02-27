@@ -28,10 +28,10 @@
 		<div class="form-group row">
 			<label class="col-xs-4 control-label" for="money">희망 대출금액</label>
 			<div class="col-xs-6 inputGroupContainer">
-	  				<div class="input-group ">
-	  					<input name="money" id="money" class="form-control" type="text" dir='rtl' value="${map.MONEY }">
-	  					<span class="input-group-addon">만원</span>
-	    			</div>
+  				<div class="input-group">
+  					<input name="money" id="money" disabled="disabled" class="form-control" type="text" dir='rtl' value="${map.MONEY }">
+  					<span class="input-group-addon">만원</span>
+    			</div>
   			</div>
 		</div>
 		<div class="form-group row">
@@ -48,7 +48,7 @@
 			<label class="col-xs-4 control-label" for="income">연 소득</label>
 			<div class="col-xs-6 inputGroupContainer">
 	  				<div class="input-group ">
-	  					<input name="income" id="income" class="form-control" type="text" dir='rtl' value="${map.INCOME }">
+	  					<input name="income" disabled="disabled" id="income" class="form-control" type="text" dir='rtl' value="${map.INCOME }">
 	  					<div class="input-group-addon">만원</div>
 	    			</div>
   			</div>
@@ -57,7 +57,7 @@
   			<label class="col-xs-4 control-label" for="name">성명</label>
     		<div class="col-xs-6 inputGroupContainer">
    				 <div class="input-group">
-				 	 <input name="name" id="name" value="${map.NAME }" class="form-control"  type="text" >
+				 	 <input name="name" id="name" value="${map.NAME }" disabled="disabled" class="form-control"  type="text" >
 				  </div>
 			 </div>
 		</div>
@@ -65,12 +65,12 @@
   			<label class="col-xs-4 control-label" for="birthday" >생년월일</label>
     		<div class="col-xs-6 inputGroupContainer">
    				 <div class="input-group">
-				 	 <input name="birthday" id="birthday" value="${map.BIRTHDAY }" class="form-control"  type="text" >
+				 	 <input name="birthday" id="birthday" value="${map.BIRTHDAY }" disabled="disabled" class="form-control"  type="text" >
 				  </div>
 			 </div>
 		</div>
 		<div class="form-group row">
-  			<label class="col-xs-4 control-label"  for="sex">성별</label>
+  			<label class="col-xs-4 control-label" for="sex">성별</label>
     		<div class="col-xs-6 radioContainer">
    				 <div id="sex">
    				 	${map.SEX }
@@ -81,7 +81,7 @@
   			<label class="col-xs-4 control-label"  for="email">이메일</label>
     		<div class="col-xs-6 inputGroupContainer">
    				 <div class="input-group">
-				 	 <input name="email" id="email" value="${map.EMAIL }" class="form-control"  type="text" >
+				 	 <input name="email" id="email" disabled="disabled" value="${map.EMAIL }" class="form-control"  type="text" >
 				  </div>
 			 </div>
 		</div>
@@ -89,7 +89,7 @@
   			<label class="col-xs-4 control-label" for="phone" >휴대폰 번호</label>
     		<div class="col-xs-6 inputGroupContainer">
    				 <div class="input-group">
-				 	 <input name="phone" id="phone" value="${map.PHONE }" class="form-control"  type="text" >
+				 	 <input name="phone" id="phone" value="${map.PHONE }" disabled="disabled" class="form-control"  type="text" >
 				  </div>
 			 </div>
 		</div>
@@ -142,6 +142,16 @@
 <script type="text/javascript">
 	var loanDetail = {
 		init : function() {
+			$("#update").on("click", function(e) {
+				e.preventDefault();
+				boardDetail.fn_openBoardUpdate();
+			});
+			$("#delete").on("click", function(e){ //삭제하기 버튼
+
+                e.preventDefault();
+                boardDetail.fn_deleteBoard();
+
+            });
 
 		},
 		subLoan:function() {
@@ -149,7 +159,23 @@
 	    	, url = "subLoanWrite";
 		    comSubmit.setUrl(url);
 		    comSubmit.submit();
-		}
+		},
+		fn_openBoardUpdate : function() {
+			var idx = "${map.IDX}";
+			var comSubmit = new ComSubmit();
+			comSubmit.setUrl("boardUpdate");
+			comSubmit.addParam("IDX", idx);
+			comSubmit.submit();
+		},
+
+		fn_deleteBoard: function(){
+			var idx = "${map.IDX}";
+            var comSubmit = new ComSubmit();
+            comSubmit.setUrl("deleteBoard");
+            comSubmit.addParam("IDX", idx);
+            comSubmit.submit();
+
+        }
 	}
 	$(function() {
 		loanDetail.init();
