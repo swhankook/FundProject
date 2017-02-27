@@ -14,7 +14,7 @@
 .pagination {
 	display: inline-block;
 	margin-left:200px;
-	
+
 }
 
 .pagination a {
@@ -87,9 +87,9 @@ background-color
 
 
 .menu {
-  
+
   display: inline-block;
-  
+
 }
 .drop-menu { margin: 0; padding: 0; }
 .drop-menu li {
