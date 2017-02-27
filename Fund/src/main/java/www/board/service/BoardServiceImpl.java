@@ -72,4 +72,5 @@ public class BoardServiceImpl implements BoardService {
 	public List<Map<String, Object>> selectSubLoanList(Map<String, Object> map) throws Exception {
 		return boardDao.selectSubLoanList(map);
 	}
+	
 }

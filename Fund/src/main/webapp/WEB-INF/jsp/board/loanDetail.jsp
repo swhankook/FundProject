@@ -105,7 +105,7 @@
 					<td class="comm-area">
 						<input type="hidden" name="IDX" id="IDX" value="${row.IDX}">
 						<input type="hidden" id="userid" name="USERID" value="${row.CREA_ID }">
-						<textarea class="form-control" id="CONTENTS" name="CONTENTS" data-autoresize="">${row.TITLE }</textarea>
+						<textarea class="form-control" id="CONTENTS" name="CONTENTS" data-autoresize="">${row.CONTENTS }</textarea>
 					</td>
 				</tr>
 				</c:forEach>
@@ -134,7 +134,7 @@
 				</tbody>
 			</table>
 		</div>
-		<ul class="comment-list"></ul>
+		
 	</div>
 	</form>
 </div>

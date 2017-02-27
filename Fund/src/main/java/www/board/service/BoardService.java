@@ -23,4 +23,6 @@ public interface BoardService {
 	Map<String, Object> selectLoanDetail(Map<String, Object> map) throws Exception;
 
 	List<Map<String, Object>> selectSubLoanList(Map<String, Object> map) throws Exception;
+	
+	
 }

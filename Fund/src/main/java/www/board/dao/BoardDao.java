@@ -64,4 +64,5 @@ public class BoardDao extends AbstractDAO {
 	public List<Map<String, Object>> selectSubLoanList(Map<String, Object> map) throws Exception {
 		return (List<Map<String, Object>>) selectList("board.subList", map);
 	}
+	
 }

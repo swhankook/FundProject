@@ -144,6 +144,7 @@ public class BoardCtrl extends BaseCtrl {
 	public void openLoanDetail(Model mv, CommandMap commandMap) throws Exception {
 		Map<String, Object> map = boardService.selectLoanDetail(commandMap.getMap());
 		List<Map<String, Object>> list = boardService.selectSubLoanList(commandMap.getMap());
+		
 
 		mv.addAttribute("map", map);
 		mv.addAttribute("list", list);
@@ -153,12 +154,13 @@ public class BoardCtrl extends BaseCtrl {
 	public ModelAndView subLoanWrite(CommandMap commandMap) throws Exception {
 		ModelAndView mv = null;
 
-		if (StringUtils.isNotBlank(commandMap.getMap().get("PARENT_ID").toString())||StringUtils.isNotBlank(commandMap.getMap().get("TITLE").toString())
-				|| StringUtils.isNotBlank(commandMap.getMap().get("CONTENTS").toString())) {
+		if (StringUtils.isNotBlank(commandMap.getMap().get("PARENT_IDX").toString()) || StringUtils.isNotBlank(commandMap.getMap().get("CONTENTS").toString())) {
 			boardService.insertBoard(commandMap.getMap());
 		}
-		mv = new ModelAndView("redirect:/board/loanList");
+		mv = new ModelAndView("redirect:/board/loanDetial");
 
 		return mv;
 	}
+	
+	
 }

@@ -157,5 +157,7 @@ public class AbstractDAO {
         returnMap.put("result", boardList);
         return returnMap;
     }
+    
+   
 
 }

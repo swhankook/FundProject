@@ -41,8 +41,7 @@
     <![CDATA[
         INSERT INTO TB_BOARD
         (
-
-            TITLE,
+            PARENT_IDX,
             CONTENTS,
             HIT_CNT,
             DEL_GB,
@@ -51,8 +50,7 @@
         )
         VALUES
         (
-
-            #{TITLE},
+            #{PARENT_IDX},
             #{CONTENTS},
             0,
             'N',
@@ -79,8 +77,7 @@
             IDX,
             HIT_CNT,
             CREA_ID,
-            CREA_DTM,
-            TITLE,
+            CREA_DTM,            
             CONTENTS
         FROM
             TB_BOARD
@@ -113,7 +110,7 @@
 	    <![CDATA[
 	        SELECT
 	            IDX,
-	            TITLE,
+	            CONTENTS,
 	            HIT_CNT,
 	            CREA_DTM,
 	            CREA_ID
