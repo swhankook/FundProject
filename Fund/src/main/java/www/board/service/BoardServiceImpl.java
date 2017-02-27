@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import www.board.dao.BoardDao;
+import www.common.CommonsWeb;
 
 @Service("boardService")
 public class BoardServiceImpl implements BoardService {
@@ -72,5 +73,10 @@ public class BoardServiceImpl implements BoardService {
 	public List<Map<String, Object>> selectSubLoanList(Map<String, Object> map) throws Exception {
 		return boardDao.selectSubLoanList(map);
 	}
-	
+
+	@Override
+	public Map<String, Object> selectLoanMyList(Map<String, Object> map) throws Exception {
+		return boardDao.selectLoanMyList(map);
+	}
+
 }

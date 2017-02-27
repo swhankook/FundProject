@@ -66,6 +66,33 @@
 		<include refid="common.pagingPost" />
 	</select>
 
+	<select id="selectLoanMyList" parameterType="hashmap" resultType="hashmap">
+		<include refid="common.pagingPre" />
+	    <![CDATA[
+		        SELECT
+		            IDX,
+		            PURPOSE,
+		            MONEY,
+		            PERIOD,
+		            INCOME,
+		            NAME,
+		            BIRTHDAY,
+		            EMAIL,
+		            PHONE,
+		            SEX,
+		            HIT_CNT,
+		            DEL_GB,
+		            CREA_DTM,
+		            CREA_ID,
+		            (SELECT COUNT(IDX) FROM TB_BOARD WHERE PARENT_IDX = LC.IDX) as SUB_COUNT
+		        FROM
+		            LOAN_CONS LC
+		        WHERE
+		            DEL_GB = 'N' AND CREA_ID = #{USERID}
+	    ]]>
+		<include refid="common.pagingPost" />
+	</select>
+
 	<update id="updateLoanHitCnt" parameterType="hashmap">
     <![CDATA[
         UPDATE LOAN_CONS

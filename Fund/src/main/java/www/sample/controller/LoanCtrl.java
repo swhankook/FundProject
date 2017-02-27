@@ -1,5 +1,6 @@
 package www.sample.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -12,10 +13,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 import www.board.service.BoardService;
+import www.common.CommonsWeb;
 import www.common.common.CommandMap;
+import www.common.common.User;
 import www.common.ctrl.BaseCtrl;
+import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 
 @Controller
 @RequestMapping("/loan")
@@ -25,6 +28,9 @@ public class LoanCtrl extends BaseCtrl {
 	@Resource(name = "boardService")
 	private BoardService boardService;
 
+	@Resource(name = "commonsWeb")
+    private CommonsWeb commons;
+
     @RequestMapping(value = "/loanWrite")
 	public void boardWrite(Model model, CommandMap commandMap) throws Exception {
 	}
@@ -32,7 +38,7 @@ public class LoanCtrl extends BaseCtrl {
 
 	@RequestMapping(value = "/loanDetail")
 	public void openBoardDetail(Model mv, CommandMap commandMap) throws Exception {
-		Map<String, Object> map = boardService.selectBoardDetail(commandMap.getMap());
+		Map<String, Object> map = boardService.selectLoanDetail(commandMap.getMap());
 		mv.addAttribute("map", map);
 	}
 
@@ -62,6 +68,18 @@ public class LoanCtrl extends BaseCtrl {
 	public void loanList(Model model, CommandMap commandMap) throws Exception {
 		Map<String, Object> resultMap = boardService.selectLoanList(commandMap.getMap());
 
+		model.addAttribute("paginationInfo", (PaginationInfo) resultMap.get("paginationInfo"));
+		model.addAttribute("list", resultMap.get("result"));
+	}
+
+    @RequestMapping(value = "/loanMyList")
+	public void loanMyList(Model model, CommandMap commandMap) throws Exception {
+    	User user = commons.getSession();
+    	Map<String, Object> resultMap = new HashMap<String, Object>();
+    	if(user != null) {
+    		commandMap.getMap().put("USERID", user.getEmail());
+    		resultMap = boardService.selectLoanMyList(commandMap.getMap());
+    	}
 		model.addAttribute("paginationInfo", (PaginationInfo) resultMap.get("paginationInfo"));
 		model.addAttribute("list", resultMap.get("result"));
 	}

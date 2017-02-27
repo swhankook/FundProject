@@ -64,5 +64,9 @@ public class BoardDao extends AbstractDAO {
 	public List<Map<String, Object>> selectSubLoanList(Map<String, Object> map) throws Exception {
 		return (List<Map<String, Object>>) selectList("board.subList", map);
 	}
-	
+
+	@SuppressWarnings("unchecked")
+	public Map<String, Object> selectLoanMyList(Map<String, Object> map) throws Exception {
+		return (Map<String, Object>) selectPagingList("loan.selectLoanMyList", map);
+	}
 }
