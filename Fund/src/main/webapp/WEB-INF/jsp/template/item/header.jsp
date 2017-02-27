@@ -26,28 +26,26 @@
 							<li role="presentation"><a href="/board/boardWrite">대출받기</a></li>
 							<c:if test="${not empty user && user.type eq 'company'}">
 								<li role="presentation"><a href="/board/boardList">대출확인</a></li>
-							</c:if>							
+							</c:if>
 							<c:choose>
-								<c:when test="${not empty user && user.type eq 'company'}">									
-										<li role="presentation" ><a href="#" onclick="header.logout();">로그아웃</a></li>					
+								<c:when test="${not empty user && user.type eq 'company'}">
+										<li role="presentation" ><a href="#" onclick="header.logout();">로그아웃</a></li>
 								</c:when>
-								<c:when test="${not empty user && user.type eq 'user'}">									
+								<c:when test="${not empty user && user.type eq 'user'}">
 										<li role="presentation"><a href="#">마이페이지</a>
-											
+
 												<ul>
 													<li role="presentation" ><a href="#" onclick="header.logout();">로그아웃</a></li>
 													<li role="presentation" ><a href="#" onclick="header.logout();">로그아웃</a></li>
-													
 												</ul>
-											
-										</li>					
-								</c:when>							
+										</li>
+								</c:when>
 								<c:otherwise>
 								<li role="presentation"><a href="/user/join">회원가입</a></li>
 								<li role="presentation"><a href="/user/login">로그인</a></li>
 								</c:otherwise>
 							</c:choose>
-							
+
 						</ul>
 					</div>
 				</div>
@@ -57,7 +55,7 @@
 </header>
 <script type="text/javascript">
 	var header = {
-		init : function() {	
+		init : function() {
 			$(function(){
 				$(document).mouseup(function(e) {
 					if ($(e.target).parents('.drop-menu').length == 0) {
@@ -84,7 +82,7 @@
 				});
 			});
 
-		},		
+		},
 		logout:function() {
 			var url = "<c:url value='/user/logout' />?";
 			$.ajax({

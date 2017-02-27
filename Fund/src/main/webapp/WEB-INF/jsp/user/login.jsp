@@ -4,14 +4,12 @@
 <div class="login-page">
 	<div class="form">
 		<div class="login-form">
-		
-				<input id="email" type="text" placeholder="e-mail 주소"> 
-				<input id="pwd" type="password" placeholder="비밀번호">
-				<button onclick="login.loginAccept();">login</button>
-				<p class="message">
-					아직 가입하지않았나요? <a href="/user/join">회원가입하기</a>
-				</p>
-		
+			<input id="email" type="text" placeholder="e-mail 주소">
+			<input id="pwd" type="password" placeholder="비밀번호">
+			<button onclick="login.loginAccept();">login</button>
+			<p class="message">
+				아직 가입하지않았나요? <a href="/user/join">회원가입하기</a>
+			</p>
 		</div>
 	</div>
 </div>
@@ -19,17 +17,17 @@
 	var login = {
 		init : function() {
 			$('#email').keydown(function(e){
-				if(e.which ==13){ 
+				if(e.which ==13){
 					e.preventDefault();
 					login.loginAccept();
-					
+
 				}
 			});
 			$('#pwd').keydown(function(e){
-				if(e.which ==13){ 
+				if(e.which ==13){
 					e.preventDefault();
 					login.loginAccept();
-					
+
 				}
 			});
 		},
@@ -39,7 +37,7 @@
 				, url = "<c:url value='/user/loginAccept' />?";
 
 			var regEmail = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-			
+
 			if ( !email ) {
 	            alert('이메일주소를 입력 해 주세요');
 	            $('#email').focus();
@@ -77,7 +75,7 @@
 				}
 			});
 		},
-		
+
 	}
 	$(function() {
 		login.init();

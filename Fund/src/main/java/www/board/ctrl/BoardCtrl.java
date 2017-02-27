@@ -161,8 +161,6 @@ public class BoardCtrl extends BaseCtrl {
 		return mv;
 	}
 
-
-	
 	@RequestMapping(value = "/loanMyList")
 	public void loanMyList(Model model, CommandMap commandMap) throws Exception {
 		Map<String, Object> resultMap = boardService.selectLoanList(commandMap.getMap());
@@ -170,6 +168,4 @@ public class BoardCtrl extends BaseCtrl {
 		model.addAttribute("paginationInfo", (PaginationInfo) resultMap.get("paginationInfo"));
 		model.addAttribute("list", resultMap.get("result"));
 	}
-	
-	
 }
