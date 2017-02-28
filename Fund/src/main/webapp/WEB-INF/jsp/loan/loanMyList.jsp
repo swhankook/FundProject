@@ -78,11 +78,11 @@
 		},
 		fn_openBoardDetail : function(obj) {
 			var user = $('#USERID').val()
-				, company = $('#TYPE').val();
+				, type = $('#TYPE').val();
 			if(user == "") {
 				alert('회사회원만 볼수있습니다. 로그인해주세요.');
 				return;
-			} else if(company != "company"){
+			} else if(type != "user"){
 				alert('회사회원만 볼수있습니다. 회사계정으로 로그인해주세요.');
 				return;
 			}

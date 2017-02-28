@@ -2,6 +2,39 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/jsp/template/include/lib.jsp"%>
 <input type="hidden" id="user" value="${user }">
+<div class="forum-view">
+	 <input id="fm-id" type="hidden" value="13010">
+	 <input id="fm-pid" type="hidden" value="628576">
+	 <div class="container">
+		  <div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<ul class="forum-user-info">
+					<li class="user-image tpl-forum-myimage">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+							<pattern id="forum-view-image" patternUnits="userSpaceOnUse" width="40" height="40">
+								<image x="-10" width="60" height="40" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="//i.addblock.net/member/profile_default.png?_1485763659482" />
+							</pattern>
+							<polygon fill="url(#forum-view-image)" points="20,0 37,10 37,30 20,40 3,30 3,10" />
+						</svg>
+					</li>
+					<li class="user-info">
+						<div class="tpl-forum-name">${map.CREA_ID }</div>
+						<div class="tpl-forum-date date">${map.CREA_DTM }</div>
+						<div class="tpl-forum-hit hit">HIT:${map.HIT_CNT }</div></li>
+					<li class="user-ctrl navbar-right">
+						<img id="forum-ctrl" aria-expanded="true" aria-haspopup="true" src="//i.addblock.net/icon/icon-user-ctrl.png" data-toggle="dropdown">
+						<ul class="dropdown-menu" aria-labelledby="forum-ctrl">
+							<li>
+								<a class="tpl-forum-write" href="#this" class="btn" id="update">수정</a>
+							</li>
+							<li>
+								<a class="tpl-forum-delete" href="#this" class="btn" id="delete">삭제</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<div class="tpl-forum-title"></div>
+				<div class="tpl-forum-content">
 <div class="boardWrite">
 	<div class="row">
 	<form class="form-horizontal mt-75" method="post"  id="writeForm" >
@@ -96,6 +129,20 @@
 	</fieldset>
 	</form>
 	</div>
+	</div>
+				<div class="tpl-forum-list-footer">				
+					<div class="tpl-forum-control-wrap" style="float: right;">
+						<button class="btn btn-default btn-round btn-modal btn-list tpl-forum-list" type="button" id="list">
+							 <i class="fa fa-bars"> </i>
+							 <a href="#this" class="btn" >목록</a>
+						</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 	<c:if test="${fn:length(list) > 0}">
 	<c:forEach var="row" items="${list}" varStatus="status">
 	<div class="tpl-comment-form">
@@ -105,7 +152,11 @@
 					<td class="comm-area">
 						<input type="hidden" name="IDX" id="IDX" value="${row.IDX}">
 						<input type="hidden" id="userid" name="USERID" value="${row.CREA_ID }">
+						
 						<textarea class="form-control" disabled="disabled" id="CONTENTS" name="CONTENTS" data-autoresize="">${row.CONTENTS }</textarea>
+						<span class="cm-update cm-controls pull-right" style="display: inline;" ><i class="fa fa-pencil"></i><a id="update" href="#this"> 수정</a></span>
+						<span class="cm-delete cm-controls pull-right" style="display: inline;" ><i class="fa fa-trash-o"></i><a id="delete" href="#this"> 삭제</a></span>
+						
 					</td>
 				</tr>
 			</tbody>
@@ -151,6 +202,10 @@
                 loanDetail.fn_deleteBoard();
 
             });
+			$("#list").on("click", function(e) { //목록으로 버튼
+				e.preventDefault();
+				boardDetail.fn_openBoardList();
+			});
 
 		},
 		subLoan:function() {
@@ -160,6 +215,7 @@
 		    comSubmit.submit();
 		},
 		fn_openBoardUpdate : function() {
+		
 			var idx = "${map.IDX}";
 			var comSubmit = new ComSubmit();
 			comSubmit.setUrl("subLoanUpdate");
@@ -170,11 +226,17 @@
 		fn_deleteBoard: function(){
 			var idx = "${map.IDX}";
             var comSubmit = new ComSubmit();
+            if
             comSubmit.setUrl("subLoanDelete");
             comSubmit.addParam("IDX", idx);
             comSubmit.submit();
-
-        }
+        },
+        fn_openBoardList : function() {
+        	
+			var comSubmit = new ComSubmit();
+			comSubmit.setUrl("loanList");
+			comSubmit.submit();
+		}
 	}
 	$(function() {
 		loanDetail.init();

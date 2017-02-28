@@ -30,12 +30,11 @@ public class LoanCtrl extends BaseCtrl {
 	private BoardService boardService;
 
 	@Resource(name = "commonsWeb")
-    private CommonsWeb commons;
+	private CommonsWeb commons;
 
-    @RequestMapping(value = "/loanWrite")
+	@RequestMapping(value = "/loanWrite")
 	public void boardWrite(Model model, CommandMap commandMap) throws Exception {
 	}
-
 
 	@RequestMapping(value = "/loanDetail")
 	public void openBoardDetail(Model mv, CommandMap commandMap) throws Exception {
@@ -49,19 +48,21 @@ public class LoanCtrl extends BaseCtrl {
 		mv.addAttribute("map", map);
 	}
 
-    @RequestMapping(value = "/subLoanWrite")
+	@RequestMapping(value = "/subLoanWrite")
 	public ModelAndView subLoanWrite(CommandMap commandMap) throws Exception {
 		ModelAndView mv = null;
 
-		if (StringUtils.isNotBlank(commandMap.getMap().get("PARENT_IDX").toString()) || StringUtils.isNotBlank(commandMap.getMap().get("CONTENTS").toString())) {
+		if (StringUtils.isNotBlank(commandMap.getMap().get("PARENT_IDX").toString())
+				|| StringUtils.isNotBlank(commandMap.getMap().get("CONTENTS").toString())) {
 			boardService.insertBoard(commandMap.getMap());
 		}
-		mv = new ModelAndView("redirect:/board/loanDetial");
+		mv = new ModelAndView("redirect:/loan/loanDetail?IDX=" + commandMap.get("PARENT_IDX") + "&PARENT_IDX="
+				+ commandMap.get("PARENT_IDX"));
 
 		return mv;
 	}
 
-    @RequestMapping(value = "/subLoanUpdate")
+	@RequestMapping(value = "/subLoanUpdate")
 	public ModelAndView updateBoard(CommandMap commandMap) throws Exception {
 		ModelAndView mv = new ModelAndView("redirect:/loan/loanDetail");
 
@@ -71,7 +72,7 @@ public class LoanCtrl extends BaseCtrl {
 		return mv;
 	}
 
-    @RequestMapping(value = "/loanList")
+	@RequestMapping(value = "/loanList")
 	public void loanList(Model model, CommandMap commandMap) throws Exception {
 		Map<String, Object> resultMap = boardService.selectLoanList(commandMap.getMap());
 
@@ -79,21 +80,21 @@ public class LoanCtrl extends BaseCtrl {
 		model.addAttribute("list", resultMap.get("result"));
 	}
 
-    @RequestMapping(value = "/loanMyList")
+	@RequestMapping(value = "/loanMyList")
 	public void loanMyList(Model model, CommandMap commandMap) throws Exception {
-    	User user = commons.getSession();
-    	Map<String, Object> resultMap = new HashMap<String, Object>();
-    	if(user != null) {
-    		commandMap.getMap().put("USERID", user.getEmail());
-    		resultMap = boardService.selectLoanMyList(commandMap.getMap());
-    	}
+		User user = commons.getSession();
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		if (user != null) {
+			commandMap.getMap().put("USERID", user.getEmail());
+			resultMap = boardService.selectLoanMyList(commandMap.getMap());
+		}
 		model.addAttribute("paginationInfo", (PaginationInfo) resultMap.get("paginationInfo"));
 		model.addAttribute("list", resultMap.get("result"));
 	}
 
 	@RequestMapping(value = "/subLoanDelete")
 	public ModelAndView deleteBoard(CommandMap commandMap) throws Exception {
-		ModelAndView mv = new ModelAndView("redirect:/loan/loanList");
+		ModelAndView mv = new ModelAndView("redirect:/loan/loanDetail");
 
 		boardService.deleteBoard(commandMap.getMap());
 

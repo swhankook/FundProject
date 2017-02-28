@@ -14,8 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import www.board.service.BoardService;
-import www.common.common.Board;
+
 import www.common.common.CommandMap;
 import www.common.common.User;
 import www.common.ctrl.BaseCtrl;
