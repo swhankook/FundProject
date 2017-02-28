@@ -77,7 +77,7 @@
             IDX,
             HIT_CNT,
             CREA_ID,
-            CREA_DTM,            
+            CREA_DTM,
             CONTENTS
         FROM
             TB_BOARD
@@ -89,7 +89,6 @@
     <![CDATA[
         UPDATE TB_BOARD
         SET
-            TITLE = #{TITLE},
             CONTENTS = #{CONTENTS}
         WHERE
             IDX = #{IDX}
