@@ -64,11 +64,24 @@ public class LoanCtrl extends BaseCtrl {
 
 	@RequestMapping(value = "/subLoanUpdate")
 	public ModelAndView updateBoard(CommandMap commandMap) throws Exception {
-		ModelAndView mv = new ModelAndView("redirect:/loan/loanDetail");
+		ModelAndView mv = null;
 
-		boardService.updateBoard(commandMap.getMap());
+		if (StringUtils.isNotBlank(commandMap.getMap().get("IDX").toString())
+				|| StringUtils.isNotBlank(commandMap.getMap().get("CONTENTS").toString())) {
+			boardService.updateBoard(commandMap.getMap());
+		}
+		mv = new ModelAndView("redirect:/loan/loanDetail?IDX=" + commandMap.get("PARENT_IDX") + "&PARENT_IDX="
+				+ commandMap.get("PARENT_IDX"));
 
-		mv.addObject("IDX", commandMap.get("IDX"));
+		return mv;
+	}
+
+	@RequestMapping(value = "/subLoanDelete")
+	public ModelAndView deleteBoard(CommandMap commandMap) throws Exception {
+		ModelAndView mv = new ModelAndView("redirect:/loan/loanDetail?IDX=" + commandMap.get("PARENT_IDX") + "&PARENT_IDX="
+				+ commandMap.get("PARENT_IDX"));
+
+		boardService.deleteBoard(commandMap.getMap());
 		return mv;
 	}
 
@@ -90,15 +103,6 @@ public class LoanCtrl extends BaseCtrl {
 		}
 		model.addAttribute("paginationInfo", (PaginationInfo) resultMap.get("paginationInfo"));
 		model.addAttribute("list", resultMap.get("result"));
-	}
-
-	@RequestMapping(value = "/subLoanDelete")
-	public ModelAndView deleteBoard(CommandMap commandMap) throws Exception {
-		ModelAndView mv = new ModelAndView("redirect:/loan/loanDetail");
-
-		boardService.deleteBoard(commandMap.getMap());
-
-		return mv;
 	}
 
 	@RequestMapping(value = "/write")

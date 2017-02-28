@@ -36,16 +36,7 @@
         <bean class="www.common.interceptor.RequestInterceptor" />
         <!-- 로그인이 필요한 페이지 interceptor -->
         <mvc:interceptor>
-            <mvc:mapping path="/**"/>
-            <mvc:exclude-mapping path="/user/**"/>
-            <mvc:exclude-mapping path="/home/**"/>
-            <mvc:exclude-mapping path="/home/**/**"/>
-            <mvc:exclude-mapping path="/webjars/**"/>
-            <mvc:exclude-mapping path="/board/**"/>
-            <mvc:exclude-mapping path="/loan/**"/>
-            <mvc:exclude-mapping path="/resources/**"/>
-            <mvc:exclude-mapping path="/resources/**/**"/>
-            <mvc:exclude-mapping path="/resources/**/**/**"/>
+            <mvc:mapping path="/loan"/>
             <bean class="www.common.interceptor.SecurityInterceptor" />
         </mvc:interceptor>
         <!-- 로그인이 필요한 페이지 interceptor -->
