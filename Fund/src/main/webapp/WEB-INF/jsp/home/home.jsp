@@ -4,7 +4,7 @@
 	<section id="main-slider" class="no-margin">
         <div class="carousel slide">      
             <div class="carousel-inner">
-                <div class="item active" style="background-image: url(images/slider/bg1.jpg)">
+                <div class="item active" style="background-image: url(/resources/images/slider/bg1.jpg)">
                     <div class="container">
                         <div class="row slide-margin">
                             <div class="col-sm-6">
@@ -17,7 +17,7 @@
 
                             <div class="col-sm-6 hidden-xs animation animated-item-4">
                                 <div class="slider-img">
-                                    <img src="images/slider/img3.png" class="img-responsive">
+                                    <img src="/resources/images/slider/img3.png" class="img-responsive">
                                 </div>
                             </div>
 
@@ -67,7 +67,7 @@
 		<div class="container">
 			<div class="col-md-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms" >
 				<h2>about us</h2>
-				<img src="images/6.jpg" class="img-responsive"/>
+				<img src="/resources/images/6.jpg" class="img-responsive"/>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus interdum erat 
 				libero, pulvinar tincidunt leo consectetur eget. Curabitur lacinia pellentesque
 				libero, pulvinar tincidunt leo consectetur eget. Curabitur lacinia pellentesque
@@ -99,7 +99,7 @@
 				<h2>Lates News</h2>
 			</div>
 			<div class="col-md-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms">
-				<img src="images/4.jpg" class="img-responsive"/>
+				<img src="/resources/images/4.jpg" class="img-responsive"/>
 				<h3>Template built with Twitter Bootstrap</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus interdum erat 
 				libero, pulvinar tincidunt leo consectetur eget. Curabitur lacinia pellentesque
@@ -109,7 +109,7 @@
 			</div>
 			
 			<div class="col-md-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-				<img src="images/4.jpg" class="img-responsive"/>
+				<img src="/resources/images/4.jpg" class="img-responsive"/>
 				<h3>Template built with Twitter Bootstrap</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus interdum erat 
 				libero, pulvinar tincidunt leo consectetur eget. Curabitur lacinia pellentesque
@@ -119,7 +119,7 @@
 			</div>
 			
 			<div class="col-md-4 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="900ms">				
-				<img src="images/4.jpg" class="img-responsive"/>
+				<img src="/resources/images/4.jpg" class="img-responsive"/>
 				<h3>Template built with Twitter Bootstrap</h3>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus interdum erat 
 				libero, pulvinar tincidunt leo consectetur eget. Curabitur lacinia pellentesque
@@ -139,11 +139,11 @@
 
             <div class="partners">
                 <ul>
-                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms" src="images/partners/partner1.png"></a></li>
-                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" src="images/partners/partner2.png"></a></li>
-                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="900ms" src="images/partners/partner3.png"></a></li>
-                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="1200ms" src="images/partners/partner4.png"></a></li>
-                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="1500ms" src="images/partners/partner5.png"></a></li>
+                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="300ms" src="/resources/images/partners/partner1.png"></a></li>
+                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" src="/resources/images/partners/partner2.png"></a></li>
+                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="900ms" src="/resources/images/partners/partner3.png"></a></li>
+                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="1200ms" src="/resources/images/partners/partner4.png"></a></li>
+                    <li> <a href="#"><img class="img-responsive wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="1500ms" src="/resources/images/partners/partner5.png"></a></li>
                 </ul>
             </div>        
         </div><!--/.container-->
@@ -168,4 +168,15 @@
     </section><!--/#conatcat-info-->
     
     <script type="text/javascript">
+    var home = {
+    		init : function() {
+    			var $list = $(".container");
+    			$.each($list, function(data, num){
+    				data.show();
+    			});
+    		}  
+    }
+    $(function() {
+		home.init();
+	});
     </script>

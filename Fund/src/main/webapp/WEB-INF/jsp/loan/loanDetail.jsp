@@ -147,7 +147,15 @@
 							<button
 								class="btn btn-default btn-round btn-modal btn-list tpl-forum-list"
 								type="button" id="list">
-								<i class="fa fa-bars"> </i> <a href="/loan/loanList" class="btn">목록</a>
+								<i class="fa fa-bars"> </i> 
+								<c:choose>
+									<c:when test="${user.type eq 'user' }">
+										<a href="/loan/loanMyList" class="btn">목록</a>
+									</c:when>
+									<c:otherwise>
+										<a href="/loan/loanList" class="btn">목록</a>
+									</c:otherwise>
+								</c:choose>
 							</button>
 						</div>
 					</div>
@@ -213,11 +221,6 @@
 <script type="text/javascript">
 	var loanDetail = {
 		init : function() {
-			$("#list").on("click", function(e) { //목록으로 버튼
-				e.preventDefault();
-				boardDetail.fn_openBoardList();
-			});
-
 		},
 		subLoan:function() {
 			var comSubmit = new ComSubmit("sub_frm")

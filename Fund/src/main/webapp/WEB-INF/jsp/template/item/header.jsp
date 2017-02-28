@@ -30,7 +30,7 @@
 									<li role="presentation" ><a href="#" onclick="header.logout();">로그아웃</a></li>
 								</c:when>
 								<c:when test="${not empty user && user.type eq 'user'}">
-									<li role="presentation"><a href="/loan/loanMyList">신청확인/a></li>
+									<li role="presentation"><a href="/loan/loanMyList">신청확인</a></li>
 									<li role="presentation" ><a href="#" onclick="header.logout();">로그아웃</a></li>
 								</c:when>
 								<c:otherwise>
