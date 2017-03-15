@@ -80,10 +80,10 @@
 			var user = $('#USERID').val()
 				, type = $('#TYPE').val();
 			if(user == "") {
-				alert('회사회원만 볼수있습니다. 로그인해주세요.');
+				alert('본인원만 볼수있습니다. 로그인해주세요.');
 				return;
-			} else if(type != "user"){
-				alert('회사회원만 볼수있습니다. 회사계정으로 로그인해주세요.');
+			} else if(type != "user" && type != "USER"){
+				alert('본인만 볼수있습니다. ');
 				return;
 			}
 			var comSubmit = new ComSubmit();

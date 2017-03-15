@@ -11,18 +11,10 @@ import com.google.common.base.Strings;
 
 /**
  * <pre>
- * Class Name : BaseCtrl.java
+ *
  * Description : 기본 controller. 모든 controller는 이 controller를 상속받아야 한다.
  *
- * Modification Information
- * Modify Date         Modifier    Comment
- * -----------------------------------------------
- * 2016. 02. 27.       HanKook	       신규작성
- *
- * </pre>
- *
- * @author HanKook
- * @since 2016. 02. 27.
+
  */
 public abstract class BaseCtrl {
 	protected final Logger logger = LoggerFactory.getLogger(getClass());

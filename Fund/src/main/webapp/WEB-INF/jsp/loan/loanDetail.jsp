@@ -30,9 +30,8 @@
 						src="//i.addblock.net/icon/icon-user-ctrl.png"
 						data-toggle="dropdown">
 						<ul class="dropdown-menu" aria-labelledby="forum-ctrl">
-							<li><a class="tpl-forum-write" href="#this" class="btn"
-								id="update">수정</a></li>
-							<li><a class="tpl-forum-delete" href="#this" class="btn"
+							
+							<li><a class="tpl-forum-delete" onclick="loanDetail.loanDel(this)" class="btn"
 								id="delete">삭제</a></li>
 						</ul></li>
 				</ul>
@@ -146,16 +145,11 @@
 						<div class="tpl-forum-control-wrap" style="float: right;">
 							<button
 								class="btn btn-default btn-round btn-modal btn-list tpl-forum-list"
-								type="button" id="list">
+								type="button" onclick="loanDetail.fn_openBoardList(this)" id="list">
 								<i class="fa fa-bars"> </i> 
-								<c:choose>
-									<c:when test="${user.type eq 'user' }">
-										<a href="/loan/loanMyList" class="btn">목록</a>
-									</c:when>
-									<c:otherwise>
-										<a href="/loan/loanList" class="btn">목록</a>
-									</c:otherwise>
-								</c:choose>
+								
+										<a href="" class="btn">목록</a>									
+								
 							</button>
 						</div>
 					</div>
@@ -250,10 +244,23 @@
 			comSubmit.submit();
 		},
         fn_openBoardList : function() {
-
+        	var user = $('#USER').val();
 			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("loanList");
+			if(user === "USER") {
+				comSubmit.setUrl("loanMyList");
+			}
+			else{
+				comSubmit.setUrl("loanList");
+			}	
+			
 			comSubmit.submit();
+		},
+		loanDel:function(){
+			var idx = "${map.IDX}";
+			var comSubmit = new ComSubmit();
+			comSubmit.setUrl("loanDelete");
+            comSubmit.addParam("IDX", idx);
+            comSubmit.submit();
 		}
 	}
 	$(function() {

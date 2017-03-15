@@ -45,6 +45,10 @@ public class BoardDao extends AbstractDAO {
 	public void insertLoanBoard(Map<String, Object> map) throws Exception {
 		insert("loan.insertLoanBoard", map);
 	}
+	
+	public void deleteLoan(Map<String, Object> map) throws Exception {
+		update("loan.deleteLoan", map);
+	}
 
 	@SuppressWarnings("unchecked")
 	public Map<String, Object> selectLoanList(Map<String, Object> map) throws Exception {

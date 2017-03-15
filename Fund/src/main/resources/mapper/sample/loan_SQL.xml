@@ -127,4 +127,15 @@
             IDX = #{IDX}
     ]]>
 	</select>
+	
+	<update id="deleteLoan" parameterType="hashmap">
+    <![CDATA[
+        UPDATE LOAN_CONS
+        SET
+            DEL_GB = 'Y'
+        WHERE
+            IDX = #{IDX}
+    ]]>
+	</update>
+	
 </mapper>

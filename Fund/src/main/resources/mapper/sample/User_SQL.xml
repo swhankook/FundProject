@@ -37,7 +37,7 @@
 
             #{email},
             #{password},
-            #{type]
+            #{type}
         )
 	</insert>
 

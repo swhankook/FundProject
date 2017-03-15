@@ -78,10 +78,10 @@
     		<div class="col-xs-6 radioContainer">
    				 <div class="radio">
 				 	 <label class="radio-inline">
-				 	 	<input type="radio" name="sex" id="sex" value="M" /> 남성
+				 	 	<input type="radio" name="sex" id="sex" value="남성" /> 남성
 				 	 </label>
 				 	 <label class="radio-inline">
-				 	 	<input type="radio" name="sex" id="sex" value="F"  /> 여성
+				 	 	<input type="radio" name="sex" id="sex" value="여성"  /> 여성
 				 	 </label>
 				  </div>
 			 </div>

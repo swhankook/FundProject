@@ -47,6 +47,16 @@ public class LoanCtrl extends BaseCtrl {
 		mv.addAttribute("list", list);
 		mv.addAttribute("map", map);
 	}
+	
+	@RequestMapping(value="loanDelete")
+	public ModelAndView loanDelete(CommandMap commandMap) throws Exception{
+	    ModelAndView mv = new ModelAndView("redirect:/loan/loanMyList");
+	     
+	    boardService.loanDelete(commandMap.getMap());
+	     
+	    return mv;
+
+	}
 
 	@RequestMapping(value = "/subLoanWrite")
 	public ModelAndView subLoanWrite(CommandMap commandMap) throws Exception {
